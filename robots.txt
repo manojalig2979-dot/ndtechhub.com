@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /blog-editor
+Disallow: /admin.html
+Disallow: /preview.html
+Disallow: /blog-editor.html
+
+Sitemap: https://ndtechhub.com/sitemap.xml

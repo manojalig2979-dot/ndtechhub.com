@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Analytics Dashboard Demo | NDTechHub Templates</title>
+  <meta name="description" content="Explore the SaaS Analytics Dashboard Template Demo by NDTechHub — high-performance, zero-bloat HTML template with live metrics preview.">
+  <link rel="canonical" href="https://ndtechhub.com/templates/saas-dashboard">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ndtechhub.com/templates/saas-dashboard">
+  <meta property="og:title" content="SaaS Analytics Dashboard Demo | NDTechHub Templates">
+  <meta property="og:description" content="Explore the SaaS Analytics Dashboard Template Demo by NDTechHub — high-performance, zero-bloat HTML template with live metrics preview.">
+  <meta property="og:image" content="https://ndtechhub.com/assets/logos/ndtechhub.png">
+
+  <link rel="icon" type="image/png" href="../assets/logos/ndtechhub.png">
+
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/bento.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@0.400.0"></script>
+
+  <style>
+    body {
+      padding-top: 100px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .demo-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-tertiary) 100%);
+      color: #080c14;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 1100;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .demo-bar a {
+      color: #080c14;
+      text-decoration: underline;
+      margin-left: 10px;
+    }
+    
+    .bento-navbar {
+      top: 55px; /* Push below demo bar */
+    }
+
+    /* Dashboard Layout */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 30px;
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none; /* Hide sidebar on mobile in demo */
+      }
+    }
+
+    .sidebar {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-top);
+      border-radius: var(--border-radius-lg);
+      padding: 24px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.15), 0 12px 36px var(--glass-shadow);
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--border-radius-sm);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .sidebar-link:hover, .sidebar-link.active {
+      color: var(--cyan-electric);
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.12) 0%, rgba(79, 172, 254, 0.04) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-left: 4px solid var(--cyan-electric);
+      box-shadow: 0 4px 14px rgba(0, 242, 254, 0.15);
+    }
+
+    /* Chart Box */
+    .chart-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-top);
+      border-radius: var(--border-radius-lg);
+      padding: 24px;
+      margin-top: 24px;
+      position: relative;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.15), 0 16px 40px var(--glass-shadow);
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 220px;
+    }
+
+    /* Metric Cards */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .metric-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-top);
+      border-radius: var(--border-radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.15), 0 8px 24px var(--glass-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-top-color: #ffffff;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 254, 0.15);
+    }
+
+    .metric-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(79, 172, 254, 0.05) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-electric);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 4px 12px rgba(0, 242, 254, 0.2);
+    }
+
+    .metric-details h4 {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .metric-details span {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Interactive Notifications Drawer */
+    .notifications-overlay {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 320px;
+      background: linear-gradient(135deg, rgba(8, 12, 20, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-top);
+      border-radius: var(--border-radius-md);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 242, 254, 0.15);
+      padding: 16px;
+      display: none;
+      z-index: 100;
+    }
+
+    .notifications-overlay.show {
+      display: block;
+    }
+
+    .notification-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .notification-item:last-child {
+      border: none;
+    }
+
+    /* Theme Toggle Button */
+    .action-btn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--glass-border-top);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(0, 242, 254, 0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Top Bar -->
+  <div class="demo-bar">
+    <div>⚡ NDTechHub Template Sandbox • SaaS Analytics Dashboard</div>
+    <div>
+      <a href="../portfolio">← Back to Portfolio</a>
+      <a href="../contact?package=enterprise&interest=saas" style="background: #fff; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: 800;">Deploy This Website →</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="bento-navbar" style="max-width: 1100px;">
+      <a href="../" class="nav-brand">
+        Apex<span class="brand-tech">Console</span><span class="dot"></span>
+      </a>
+      <div style="display: flex; gap: 10px; align-items: center; pointer-events: auto;">
+        <button class="action-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+          <i data-lucide="sun" id="theme-icon-sun" style="display: none; width: 18px; height: 18px;"></i>
+          <i data-lucide="moon" id="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+        </button>
+        <button class="action-btn" onclick="toggleNotifications()" aria-label="Notifications" style="position: relative;">
+          <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+          <span style="position: absolute; top: 12px; right: 12px; width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
+        </button>
+        <div class="notifications-overlay" id="notifOverlay">
+          <h4 style="font-size: 14px; margin-bottom: 12px; color: #fff;">Recent Notifications</h4>
+          <div class="notification-item"><b>New Sign-up</b>: Marcus Chen registered for Premium tier. (2m ago)</div>
+          <div class="notification-item"><b>Deployment Successful</b>: Version 3.2.0 is now live. (1h ago)</div>
+          <div class="notification-item"><b>Billing Sync Alert</b>: Stripe hook responded successfully. (3h ago)</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="flex: 1; max-width: 1100px; margin-top: 40px;">
+    
+    <div class="dashboard-container">
+      
+      <!-- Sidebar Panel -->
+      <aside class="sidebar">
+        <a href="#" class="sidebar-link active"><i data-lucide="layout-dashboard" style="width: 16px;"></i> Dashboard</a>
+        <a href="#" class="sidebar-link" onclick="alert('Simulation: Open User Analytics')"><i data-lucide="users" style="width: 16px;"></i> User Analytics</a>
+        <a href="#" class="sidebar-link" onclick="alert('Simulation: Open Stripe Invoicing')"><i data-lucide="credit-card" style="width: 16px;"></i> Billing Settings</a>
+        <a href="#" class="sidebar-link" onclick="alert('Simulation: Open Server Logs')"><i data-lucide="terminal" style="width: 16px;"></i> System Logs</a>
+        <a href="#" class="sidebar-link" onclick="alert('Simulation: Open API Settings')"><i data-lucide="settings" style="width: 16px;"></i> Integrations</a>
+      </aside>
+
+      <!-- Dashboard Console -->
+      <section style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <div>
+          <span class="tech-tag" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">TURNKEY MOCKUP</span>
+          <h1 style="font-size: 32px; font-weight: 800; margin-top: 10px; color: #fff;">Performance Console</h1>
+          <p style="color: var(--text-secondary); max-width: 600px;">Experience interactive metric cards, dynamic graph renderings, and responsive container grids.</p>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metric-grid">
+          <!-- Card 1 -->
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i data-lucide="trending-up" style="width: 20px;"></i>
+            </div>
+            <div class="metric-details">
+              <h4>Monthly Revenue</h4>
+              <span>₹428,500</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="metric-card" style="--panel-rgb: 139, 92, 246;">
+            <div class="metric-icon" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.05);">
+              <i data-lucide="users" style="width: 20px;"></i>
+            </div>
+            <div class="metric-details">
+              <h4>Active Subscriptions</h4>
+              <span>1,248</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="metric-card" style="--panel-rgb: 16, 185, 129;">
+            <div class="metric-icon" style="color: #10B981; background: rgba(16, 185, 129, 0.05);">
+              <i data-lucide="activity" style="width: 20px;"></i>
+            </div>
+            <div class="metric-details">
+              <h4>Server Load Avg</h4>
+              <span>14.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom SVG Chart Panel -->
+        <div class="chart-panel">
+          <div class="chart-header">
+            <h3 style="color: #fff; font-size: 18px;">Traffic Transmission Analytics</h3>
+            <span class="tech-tag" style="background: rgba(0, 242, 254, 0.05); color: var(--accent-primary);">Real-time</span>
+          </div>
+          
+          <svg class="chart-svg" viewBox="0 0 500 200">
+            <!-- Grid Lines -->
+            <line x1="0" y1="50" x2="500" y2="50" stroke="rgba(255,255,255,0.03)" stroke-width="1"></line>
+            <line x1="0" y1="100" x2="500" y2="100" stroke="rgba(255,255,255,0.03)" stroke-width="1"></line>
+            <line x1="0" y1="150" x2="500" y2="150" stroke="rgba(255,255,255,0.03)" stroke-width="1"></line>
+            
+            <!-- Graph Line (Smooth Gradient) -->
+            <defs>
+              <linearGradient id="graphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.25"></stop>
+                <stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0.0"></stop>
+              </linearGradient>
+            </defs>
+            
+            <path d="M 0 170 Q 75 140 100 130 T 200 90 T 300 110 T 400 60 T 500 40 L 500 200 L 0 200 Z" fill="url(#graphGradient)"></path>
+            <path d="M 0 170 Q 75 140 100 130 T 200 90 T 300 110 T 400 60 T 500 40" fill="none" stroke="var(--accent-primary)" stroke-width="3"></path>
+            
+            <!-- Hover Points (Circles) -->
+            <circle cx="200" cy="90" r="5" fill="#fff" stroke="var(--accent-primary)" stroke-width="2"></circle>
+            <circle cx="400" cy="60" r="5" fill="#fff" stroke="var(--accent-primary)" stroke-width="2"></circle>
+          </svg>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Info -->
+  <footer style="max-width: 1100px; margin: 4rem auto 2rem auto; text-align: center; color: var(--text-muted); font-size: 12px; padding: 0 20px;">
+    SaaS Analytics Dashboard Console Preview Layout • Built with Native HTML/CSS and Vanilla JS.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Handle iframe sandbox mode
+    if (window.self !== window.top) {
+      document.querySelector('.demo-bar')?.remove();
+      document.body.style.paddingTop = '20px';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initTheme();
+    });
+
+    // Theme Toggle Logic
+    function initTheme() {
+      const toggleBtn = document.getElementById('themeToggleBtn');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const htmlEl = document.documentElement;
+      
+      toggleBtn.addEventListener('click', () => {
+        const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          htmlEl.setAttribute('data-theme', 'light');
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        } else {
+          htmlEl.setAttribute('data-theme', 'dark');
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        }
+      });
+    }
+
+    function toggleNotifications() {
+      const overlay = document.getElementById('notifOverlay');
+      overlay.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
