@@ -266,8 +266,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 7. Success Receipt Modal ──────────────────────────────────────────────
+  // ── 7. Success Receipt & In-Place State Transition (Option A) ─────────────
   function showSuccessModal(ticketId, name, email, service, message) {
+    const waUrl = `https://wa.me/918587001712?text=${encodeURIComponent(
+      `Hello Manoj Singh (CEO, NDTechHub),\n\nI just submitted project discovery parameters on ndtechhub.com!\nTicket ID: ${ticketId}\nName: ${name}\nService: ${service}\n\nLooking forward to collaborating!`
+    )}`;
+
+    // Option A: Trigger in-place form state switch
+    const formPanel = document.getElementById('c26FormPanel');
+    const inPlaceTicket = document.getElementById('inPlaceTicketId');
+    const inPlaceRecipient = document.getElementById('inPlaceRecipient');
+    const inPlaceService = document.getElementById('inPlaceService');
+    const inPlaceWhatsApp = document.getElementById('inPlaceWhatsAppCta');
+    const inPlaceResetBtn = document.getElementById('inPlaceResetBtn');
+
+    if (inPlaceTicket) inPlaceTicket.textContent = `REFERENCE: ${ticketId}`;
+    if (inPlaceRecipient) inPlaceRecipient.textContent = `${name} <${email}>`;
+    if (inPlaceService) inPlaceService.textContent = service.toUpperCase();
+    if (inPlaceWhatsApp) inPlaceWhatsApp.href = waUrl;
+
+    if (formPanel) {
+      formPanel.classList.add('is-submitted');
+      formPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Reset button to allow submitting another specification
+    if (inPlaceResetBtn) {
+      inPlaceResetBtn.onclick = () => {
+        if (form) form.reset();
+        formPanel?.classList.remove('is-submitted');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      };
+    }
+
+    // Modal Receipt
     let modal = document.getElementById('c26-success-modal');
     if (!modal) {
       modal = document.createElement('div');
@@ -275,10 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.className = 'c26-modal-overlay';
       document.body.appendChild(modal);
     }
-
-    const waMsg = encodeURIComponent(
-      `Hello Manoj Singh (CEO, NDTechHub),\n\nI just submitted project discovery parameters on ndtechhub.com!\nTicket ID: ${ticketId}\nName: ${name}\nService: ${service}\n\nLooking forward to collaborating!`
-    );
 
     modal.innerHTML = `
       <div class="c26-modal-box">
@@ -300,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>⚡ <strong>Status:</strong> Routed to Manoj Singh (CEO)</div>
         </div>
 
-        <a href="https://wa.me/918587001712?text=${waMsg}" 
+        <a href="${waUrl}" 
            class="c26-whatsapp-cta" 
            target="_blank" 
            rel="noopener noreferrer">
@@ -311,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
 
         <button type="button" id="c26-close-modal-btn" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;margin-top:14px;text-decoration:underline;">
-          Done & Close
+          View In-Place Receipt &amp; Close
         </button>
       </div>
     `;
@@ -329,3 +357,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ── 8. Option B: Client Portal Embossed Login Transition ───────────────────
+window.handlePortalLogin = function() {
+  const user = document.getElementById('portalUser')?.value.trim();
+  const pass = document.getElementById('portalPass')?.value.trim();
+
+  if (!user || !pass) {
+    const input = !user ? document.getElementById('portalUser') : document.getElementById('portalPass');
+    input?.focus();
+    input?.style.setProperty('border-color', '#ef4444');
+    input?.style.setProperty('box-shadow', '0 0 12px rgba(239, 68, 68, 0.4)');
+    setTimeout(() => {
+      input?.style.removeProperty('border-color');
+      input?.style.removeProperty('box-shadow');
+    }, 1500);
+    return;
+  }
+
+  const container = document.getElementById('portalContainer');
+  if (container) {
+    container.classList.add('authenticated');
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+};
+

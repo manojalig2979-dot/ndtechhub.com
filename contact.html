@@ -145,10 +145,11 @@
 
     <!-- Bento Grid Container -->
     <div class="bento-grid" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
-      
-      <!-- Left Column: 2026 Interactive Discovery Form (7 Columns) -->
-      <div class="c26-panel" style="grid-column: span 7;">
-        <div>
+         <!-- Left Column: 2026 Interactive Discovery Form (7 Columns) -->
+      <div class="c26-panel" id="c26FormPanel" style="grid-column: span 7; position: relative;">
+        
+        <!-- Form View State -->
+        <div class="c26-form-content" id="contactFormContent">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px;">
             <div>
               <h2 style="font-size: 22px; font-weight: 800; color: #ffffff; margin: 0 0 4px; letter-spacing: -0.01em;">
@@ -218,7 +219,6 @@
               </div>
 
               <div class="c26-choice-card" data-type="service" data-value="feedback">
-                <input type="radio" name="service" value="feedback">
                 <div class="c26-choice-icon">💬</div>
                 <div>
                   <div class="c26-choice-label">Client Feedback</div>
@@ -261,9 +261,9 @@
               </div>
 
               <div class="c26-input-wrapper">
-                <label for="c26-email">Official Email Endpoint *</label>
+                <label for="c26-email">Official Email Address *</label>
                 <div class="c26-field-container">
-                  <input type="email" id="c26-email" class="c26-input" placeholder="connect@domain.com" required>
+                  <input type="email" id="c26-email" class="c26-input" placeholder="manoj.alig2979@gmail.com" required>
                   <svg class="c26-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
@@ -360,23 +360,23 @@
                   <span>WhatsApp Alerts (+₹6,000)</span>
                 </label>
                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: rgba(255,255,255,0.8);">
-                  <input type="checkbox" class="c26-addon-check" data-name="Payment Gateway Integration" data-price="7000">
-                  <span>Stripe/Razorpay Gateways (+₹7,000)</span>
+                  <input type="checkbox" class="c26-addon-check" data-name="Razorpay / Stripe Payment Gateway" data-price="7500">
+                  <span>Payment Gateway (+₹7,500)</span>
                 </label>
                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: rgba(255,255,255,0.8);">
-                  <input type="checkbox" class="c26-addon-check" data-name="100/100 Lighthouse Optimization" data-price="5000">
-                  <span>Ultra-Performance Package (+₹5,000)</span>
+                  <input type="checkbox" class="c26-addon-check" data-name="Sub-1s Serverless Edge Sync" data-price="12000">
+                  <span>Edge Cache Setup (+₹12,000)</span>
                 </label>
               </div>
             </div>
 
-            <!-- Step 5: Project Scope Details -->
+            <!-- Step 5: Scope & Specification Details -->
             <div class="c26-section-heading">
               <span class="num-pill">4</span>
-              <span>Project Scope &amp; Architecture Brief *</span>
+              <span>Project Scope & Architecture Notes</span>
             </div>
 
-            <div class="c26-input-wrapper" style="margin-bottom: 20px;">
+            <div class="c26-input-wrapper">
               <textarea id="c26-message" class="c26-input" placeholder="Outline your requirements, tech preferences, desired features, or problem statement..." required></textarea>
             </div>
 
@@ -416,9 +416,42 @@
 
           </form>
         </div>
+
+        <!-- Option A: In-Place Animated Success Receipt -->
+        <div class="c26-in-place-success" id="contactInPlaceSuccess">
+          <div class="c26-embossed-check">&#10003;</div>
+          <h2 style="font-size: 24px; font-weight: 800; color: #ffffff; margin: 0 0 8px; letter-spacing: -0.01em;">Transmission Verified</h2>
+          <p style="font-size: 13.5px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 16px; line-height: 1.6;">
+            Your project parameters have been securely encrypted and logged into NDTechHub's review pipeline.
+          </p>
+
+          <div style="margin-bottom: 20px;">
+            <span class="c26-ticket-badge" id="inPlaceTicketId">REFERENCE: PENDING</span>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; max-width: 460px; margin: 0 auto 20px; font-size: 13px; text-align: left; line-height: 1.7;">
+            <div>👤 <strong>Recipient:</strong> <span id="inPlaceRecipient" style="color: #fff;">—</span></div>
+            <div>🛠️ <strong>Target Service:</strong> <span id="inPlaceService" style="color: #00f2fe; text-transform: uppercase;">—</span></div>
+            <div>⚡ <strong>Status:</strong> <span style="color: #34d399;">Directly Routed to Manoj Singh (CEO)</span></div>
+          </div>
+
+          <div style="max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
+            <a href="#" id="inPlaceWhatsAppCta" class="c26-whatsapp-cta" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              <span>Fast-Track to Manoj Singh on WhatsApp →</span>
+            </a>
+            
+            <button type="button" id="inPlaceResetBtn" class="portal-embossed-btn" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: var(--text-secondary); width: 100%;">
+              <span>↺ Submit Another Specification</span>
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Right Column: Direct Interconnects & Leadership SLA (5 Columns) -->
+      <!-- Right Column: Direct Interconnects, Portal Access & Leadership SLA (5 Columns) -->
       <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 24px;">
         
         <!-- Interconnects Card -->
@@ -487,6 +520,57 @@
                 Reg: UDYAM-DL-05-0079535
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Option B: Client & Partner Gateway (Animated Embossed Node) -->
+        <div class="c26-panel portal-embossed-card" id="portalContainer" style="padding: 24px; position: relative; overflow: hidden; --panel-rgb: 0, 242, 254;">
+          <!-- Form View -->
+          <div class="portal-form-content" id="portalFormContent">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div class="card-tag" style="color: #00f2fe; background: rgba(0, 242, 254, 0.1); border-color: rgba(0, 242, 254, 0.3); margin: 0;">
+                <i data-lucide="shield-check" style="width: 12px; height: 12px; margin-right: 5px;"></i>
+                <span>Client Gateway</span>
+              </div>
+              <span style="font-size: 10px; font-family: monospace; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 2px 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                SSL SECURE
+              </span>
+            </div>
+            
+            <h4 style="font-size: 17px; font-weight: 800; color: #ffffff; margin: 0 0 6px; letter-spacing: -0.01em;">
+              Client &amp; Partner Portal
+            </h4>
+            <p style="font-size: 12px; color: var(--text-muted); margin: 0 0 16px; line-height: 1.5;">
+              Access active project staging, repository builds, and invoice ledger.
+            </p>
+
+            <form id="portalLoginForm" onsubmit="event.preventDefault(); window.handlePortalLogin();">
+              <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
+                <input type="text" id="portalUser" class="portal-embossed-input" placeholder="Client ID / Partner Email" autocomplete="username" required />
+                <input type="password" id="portalPass" class="portal-embossed-input" placeholder="Access Passcode" autocomplete="current-password" required />
+              </div>
+
+              <button type="submit" class="portal-embossed-btn" id="portalLoginBtn">
+                <span>Enter Portal Session</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Success View (Embossed State) -->
+          <div class="portal-success-content" id="portalSuccessContent">
+            <div class="portal-check-circle">&#10003;</div>
+            <h4 style="font-size: 17px; font-weight: 800; color: #ffffff; margin: 0 0 4px;">Welcome Back!</h4>
+            <p style="font-size: 12px; color: #34d399; font-weight: 700; margin: 0 0 10px;">Authentication Verified</p>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin: 0 0 16px; line-height: 1.5;">
+              Node credentials validated. Initializing secure workspace console...
+            </p>
+            <a href="admin" class="portal-embossed-btn" style="text-decoration: none; display: inline-flex; width: auto; padding: 8px 20px; font-size: 12px;">
+              Launch Console Dashboard →
+            </a>
           </div>
         </div>
 
