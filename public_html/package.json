@@ -1,0 +1,19 @@
+{
+  "name": "ndtechhub",
+  "version": "1.0.0",
+  "description": "NDTechHub - Premium Tech Unit of NAVDIVA Group Pvt Ltd",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "start": "npx -y serve ."
+  },
+  "keywords": [
+    "navdiva",
+    "ndtechhub",
+    "agency",
+    "portfolio",
+    "bento"
+  ],
+  "author": "Manoj Singh",
+  "license": "ISC"
+}

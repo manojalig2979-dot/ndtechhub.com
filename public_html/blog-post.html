@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Post — NDTechHub Blog</title>
+  <meta name="description" content="Read this post on the NDTechHub Blog.">
+
+  <!-- Search Engine Directives -->
+  <link rel="canonical" href="https://ndtechhub.com/blog-post">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ndtechhub.com/blog-post">
+  <meta property="og:title" content="Blog Post — NDTechHub Blog">
+  <meta property="og:description" content="Read this post on the NDTechHub Blog.">
+  <meta property="og:image" content="https://ndtechhub.com/assets/logos/ndtechhub.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ndtechhub.com/blog-post">
+  <meta name="twitter:title" content="Blog Post — NDTechHub Blog">
+  <meta name="twitter:description" content="Read this post on the NDTechHub Blog.">
+  <meta name="twitter:image" content="https://ndtechhub.com/assets/logos/ndtechhub.webp">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-23XBQD2Z6F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-23XBQD2Z6F');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bento.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style>
+    /* Reading Progress Bar */
+    #read-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, #00f2fe, #4facfe, #8b5cf6);
+      z-index: 9999; transition: width .1s linear;
+    }
+    .blog-header-bar {
+       display: flex; align-items: center; justify-content: space-between;
+       padding: 18px 32px; background: rgba(8,12,20,.92);
+       backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,.07);
+       position: sticky; top: 0; z-index: 100;
+       pointer-events: auto;
+    }
+    .blog-header-bar .logo {
+      font-size: 20px; font-weight: 900; color: #fff; text-decoration: none;
+      display: flex; align-items: center; gap: 6px; letter-spacing: -.03em;
+    }
+    .blog-header-bar .logo span { color: #00f2fe; }
+    .blog-tag {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      background: rgba(0,242,254,.08); border: 1px solid rgba(0,242,254,.15);
+      color: rgba(0,242,254,.8); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    /* Quill content styles (read-only) */
+    .blog-post-content { color: rgba(255,255,255,.82); font-size: 16px; line-height: 1.85; }
+    .blog-post-content h1,.blog-post-content h2,.blog-post-content h3 {
+      color: #fff; font-weight: 800; letter-spacing: -.02em; margin: 2rem 0 .8rem;
+    }
+    .blog-post-content h1 { font-size: 2rem; }
+    .blog-post-content h2 { font-size: 1.5rem; }
+    .blog-post-content h3 { font-size: 1.2rem; color: #00f2fe; }
+    .blog-post-content p  { margin: 0 0 1.4rem; }
+    .blog-post-content a  { color: #00f2fe; text-decoration: underline; }
+    .blog-post-content blockquote {
+      border-left: 3px solid #00f2fe; padding: 4px 0 4px 20px;
+      margin: 1.5rem 0; color: rgba(255,255,255,.6); font-style: italic;
+    }
+    .blog-post-content pre {
+      background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 20px; overflow-x: auto;
+      font-size: 13px; line-height: 1.7; color: #a5f3fc; margin: 1.5rem 0;
+    }
+    .blog-post-content ul,.blog-post-content ol { padding-left: 24px; margin: 0 0 1.4rem; }
+    .blog-post-content li { margin-bottom: .4rem; }
+    .blog-post-content img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+    .blog-post-content strong { color: #fff; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div id="read-progress"></div>
+
+  <div id="read-progress"></div>
+
+    <!-- Floating Bento Navbar (2026 Modern Island Architecture) -->
+  <header class="bento-header">
+    <nav class="bento-navbar" aria-label="Main Navigation">
+      <div class="nav-brand-wrapper">
+        <a href="blog" class="nav-brand" aria-label="NDTechHub Blog">
+          <span class="brand-icon-wrapper">
+            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#nav-brand-grad-p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="url(#nav-brand-grad-p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="url(#nav-brand-grad-p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="nav-brand-grad-p" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00f2fe"/>
+                  <stop offset="0.5" stop-color="#4facfe"/>
+                  <stop offset="1" stop-color="#7f00ff"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="brand-text">ND<span class="brand-tech">TechHub</span></span>
+          <span style="font-size:12px;font-weight:600;color:rgba(255,255,255,.5);margin-left:4px;">/ Article</span>
+        </a>
+      </div>
+
+      <div class="nav-center-wrapper">
+        <ul class="nav-links">
+          <li class="nav-indicator-pill"></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="templates">Templates</a></li>
+          <li><a href="skills">Skills</a></li>
+          <li><a href="team">Team</a></li>
+          <li class="active"><a href="blog" class="active">Blog</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <a href="blog" class="btn" style="padding: 7px 14px; font-size: 12px; display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+          <i data-lucide="arrow-left" style="width:14px;height:14px;"></i> All Posts
+        </a>
+        <div id="auth-header-area"></div>
+        <button class="mobile-toggle" aria-label="Toggle Mobile Navigation Menu" aria-expanded="false">
+          <span class="burger-bar bar-1"></span>
+          <span class="burger-bar bar-2"></span>
+          <span class="burger-bar bar-3"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div style="height: 60px;"></div>
+
+  <!-- Post Content -->
+  <main style="max-width:900px;margin:0 auto;padding:48px 32px 80px;" id="post-container">
+    <div style="text-align:center;padding:60px 20px;color:rgba(255,255,255,.6);">
+      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 12px;">NDTechHub Technical Blog & Insights</h1>
+      <p style="max-width: 600px; margin: 0 auto 24px; font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.6;">Explore deep technical articles, benchmark logs, and zero-bloat web architecture guides from NDTechHub & NAVDIVA Group.</p>
+      <div style="width:40px;height:40px;border-radius:50%;border:3px solid rgba(0,242,254,.3);border-top-color:#00f2fe;animation:spin 1s linear infinite;margin:0 auto 20px;"></div>
+      <p style="font-size:13px; color:rgba(255,255,255,.4);">Loading article content...</p>
+    </div>
+    <noscript>
+      <div style="padding: 40px; background: rgba(255,255,255,0.05); border-radius: 16px; margin-top: 20px; text-align: center;">
+        <h2 style="color: #fff;">JavaScript Required</h2>
+        <p style="color: rgba(255,255,255,0.8); margin-top: 10px;">Please enable JavaScript to view dynamic articles, or browse our <a href="blog" style="color: #00f2fe; text-decoration: underline;">Blog Index</a>.</p>
+      </div>
+    </noscript>
+  </main>
+
+
+  <navdiva-footer></navdiva-footer>
+
+  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/ndtechhub-footer.js"></script>
+  <script type="module" src="js/blog-post.js"></script>
+</body>
+</html>
