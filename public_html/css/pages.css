@@ -66,7 +66,7 @@
   border-color: var(--card-hover-border);
   border-top-color: rgba(255, 255, 255, 0.3);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 8px 25px rgba(0, 242, 254, 0.18);
-  transform: translateY(-3px);
+  transform: translateY(-1px);
 }
 
 .stat-number {
@@ -766,13 +766,13 @@
   );
 }
 .glass-panel:hover {
-  transform: translateY(-5px) scale(1.006);
+  transform: translateY(-2px);
   border-color: rgba(var(--panel-rgb, 0, 242, 254), 0.4);
   border-top-color: rgba(255, 255, 255, 0.35);
   box-shadow: 
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.25),
-    0 20px 45px -10px rgba(var(--panel-rgb, 0, 242, 254), 0.25),
-    0 0 30px -5px rgba(var(--panel-rgb, 0, 242, 254), 0.15);
+    0 14px 35px -10px rgba(var(--panel-rgb, 0, 242, 254), 0.25),
+    0 0 25px -5px rgba(var(--panel-rgb, 0, 242, 254), 0.15);
 }
 .glass-panel:hover::before {
   opacity: 1;
@@ -945,7 +945,7 @@
   transition: var(--transition-smooth);
 }
 .matrix-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   border-color: var(--card-hover-border);
   box-shadow: 0 12px 35px -12px var(--accent-glow);
 }
@@ -1072,7 +1072,7 @@
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 16px 40px rgba(139, 92, 246, 0.18);
 }
 .pricing-card:hover {
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-2px);
   border-color: var(--card-hover-border);
   border-top-color: rgba(255, 255, 255, 0.35);
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 22px 50px -10px var(--accent-glow);
