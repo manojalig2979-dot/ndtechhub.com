@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | NDTechHub</title>
+  <meta name="description" content="We are builders. We turn complex technical challenges into elegant software systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Firebase Analytics -->
+  <script type="module" src="js/firebase-init.js"></script>
+</head>
+<body class="selection:bg-brand-500/30 selection:text-brand-400 font-sans antialiased min-h-screen relative flex flex-col justify-between">
+  <div class="ambient-orb w-[600px] h-[600px] bg-sky-600/15 top-[-100px] left-1/2 -translate-x-1/2 animation-float-slow"></div>
+  <div class="ambient-orb w-[500px] h-[500px] bg-purple-600/15 top-[600px] -left-40 animation-float-reverse"></div>
+  <div class="ambient-orb w-[550px] h-[550px] bg-emerald-500/10 bottom-[300px] -right-40"></div>
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-20" style="background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <header class="fixed top-5 inset-x-0 z-50 flex justify-center px-4">
+    <nav class="liquid-glass rounded-full px-4 py-2.5 flex items-center justify-between gap-3 md:gap-8 max-w-5xl w-full shadow-2xl transition-all duration-300">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-sky-400 to-brand-violet flex items-center justify-center p-0.5 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-slate-950/80 rounded-[10px] flex items-center justify-center backdrop-blur-md">
+            <span class="font-display font-extrabold text-sm tracking-tighter text-white">ND</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-sm tracking-wide text-white flex items-center gap-1.5">
+            NDTechHub
+            <span class="text-[9px] px-1.5 py-0.2 rounded font-mono bg-sky-500/20 text-sky-400 border border-sky-500/30">LABS</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">ndtechhub.com</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/10 text-xs font-medium text-slate-300">
+        <a href="index.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Home</a>
+        <a href="products.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Products & Apps</a>
+        <a href="services.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Services</a>
+        <a href="about.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">About</a>
+        <a href="contact.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Contact</a>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Open for Projects</span>
+        </div>
+        <a href="contact.html" class="relative group px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium text-xs shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-1.5">
+          <span>Start Build</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-full hover:bg-white/10 text-slate-300">
+          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="fixed top-20 inset-x-4 z-40 liquid-glass rounded-2xl p-4 hidden md:hidden border border-white/15 transition-all">
+    <div class="flex flex-col gap-2 font-medium text-sm text-slate-300">
+      <a href="index.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Home</span> <i data-lucide="home" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="products.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Products & Apps</span> <i data-lucide="layout-grid" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="services.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Services</span> <i data-lucide="code" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="about.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>About</span> <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="contact.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Contact</span> <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
+      </a>
+    </div>
+  </div>
+
+  <main class="relative z-10 pt-28 md:pt-36 pb-24 px-4 sm:px-6 max-w-7xl mx-auto w-full flex-grow">
+    <section class="page-view flex flex-col gap-16">
+      <div class="max-w-4xl mx-auto flex flex-col gap-10">
+        <div>
+          <span class="text-xs font-mono text-sky-400 uppercase tracking-wider">About NDTechHub</span>
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2 leading-tight">
+            We are builders. We turn complex technical challenges into elegant software systems.
+          </h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300 text-sm leading-relaxed">
+          <div class="flex flex-col gap-4">
+            <p>
+              Founded as a software studio and product foundry, <strong class="text-white font-semibold">NDTechHub (ndtechhub.com)</strong> operates at the intersection of high-availability backend systems and cutting-edge artificial intelligence.
+            </p>
+            <p>
+              Unlike conventional agencies that only assemble prefabricated templates, we actively ship and maintain our own proprietary software stack—including our autonomous AI assistant <strong class="text-white">NIA 1.0</strong>, creative workstations like <strong class="text-white">ND Studio</strong>, and enterprise management engines across education, healthcare, and logistics.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <p>
+              Our engineering philosophy is rooted in <span class="text-white font-medium">high velocity without technical debt</span>. Every solution we build is designed for 2026 demands: fluid liquid-glass interfaces, real-time socket updates, self-healing cloud instances, and tight security primitives.
+            </p>
+            <p>
+              Whether you are an ambitious founder looking to construct an MVP or an established enterprise needing to modernize mission-critical systems, NDTechHub is your dedicated technology partner.
+            </p>
+          </div>
+        </div>
+
+        <!-- Engineering Values Bento -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+          <div class="liquid-glass rounded-2xl p-6 border border-white/10">
+            <div class="text-sky-400 font-mono text-xs mb-2">01 / SPEED</div>
+            <h3 class="font-display font-bold text-lg text-white mb-2">Zero Bloat Execution</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">We write lean, decoupled code engineered for speed. No cumbersome boilerplate or slow loading libraries.</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-6 border border-white/10">
+            <div class="text-brand-neon font-mono text-xs mb-2">02 / AUTONOMY</div>
+            <h3 class="font-display font-bold text-lg text-white mb-2">AI-Augmented Core</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">We integrate agentic reasoning into workflows, giving your business autonomous 24/7 intelligence.</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-6 border border-white/10">
+            <div class="text-purple-400 font-mono text-xs mb-2">03 / TRUST</div>
+            <h3 class="font-display font-bold text-lg text-white mb-2">Direct Founder Contact</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Direct communication with top-tier engineers. Transparent milestones, live GitHub branches, and daily updates.</p>
+          </div>
+        </div>
+
+        <!-- Tech Arsenal Ribbon -->
+        <div class="liquid-glass rounded-3xl p-8 border border-white/10 mt-6">
+          <h3 class="font-display font-bold text-lg text-white mb-4 text-center">Core Engineering Stack</h3>
+          <div class="flex flex-wrap justify-center items-center gap-3">
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">TypeScript</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Next.js 15</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Python 3.12</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">FastAPI</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">PostgreSQL</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Redis</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Tailwind CSS</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Docker</span>
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Gemini LLMs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING WIDGETS -->
+  <a href="https://wa.me/919999999999?text=Hello%20NDTechHub,%20I%20am%20interested%20in%20your%20services%20and%20apps" 
+     target="_blank" rel="noopener noreferrer" 
+     class="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/40 hover:scale-110 active:scale-95 transition-all group"
+     title="Instant WhatsApp Chat">
+    <div class="absolute inset-0 rounded-full bg-emerald-400 animate-radar-pulse pointer-events-none"></div>
+    <i data-lucide="message-circle" class="w-6 h-6 relative z-10"></i>
+    <span class="absolute left-14 bg-slate-900 text-white text-[11px] font-medium px-3 py-1 rounded-lg border border-white/10 shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+      Chat on WhatsApp
+    </span>
+  </a>
+
+  <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="fixed bottom-6 right-6 z-40 px-4 py-3 rounded-full bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 text-white flex items-center gap-2.5 shadow-2xl shadow-sky-500/40 hover:scale-105 active:scale-95 transition-all group">
+    <div class="w-2.5 h-2.5 rounded-full bg-brand-neon animate-ping"></div>
+    <i data-lucide="sparkles" class="w-4 h-4"></i>
+    <span class="text-xs font-semibold tracking-wide">Ask NIA AI</span>
+  </button>
+
+  <div id="chatbot-window" class="fixed bottom-24 right-4 sm:right-6 z-50 w-[92vw] sm:w-96 max-h-[560px] h-[520px] liquid-glass rounded-3xl border border-white/20 shadow-2xl flex flex-col hidden overflow-hidden">
+    <div class="p-4 border-b border-white/10 bg-white/5 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-sky-400 to-brand-violet flex items-center justify-center text-white text-xs font-bold shadow-md shadow-sky-500/20">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h4 class="font-display font-bold text-xs text-white flex items-center gap-1.5">
+            NIA Copilot <span class="text-[9px] px-1.5 py-0.2 rounded font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ONLINE</span>
+          </h4>
+          <p class="text-[10px] text-slate-400">NDTechHub Intelligent Knowledge Base</p>
+        </div>
+      </div>
+      <button onclick="toggleChatbot()" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
+      <div class="flex items-start gap-2 max-w-[88%]">
+        <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex-shrink-0 flex items-center justify-center mt-0.5">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="p-3 rounded-2xl rounded-tl-none bg-white/10 border border-white/10 text-slate-200">
+          Hello! I’m **NIA**, the autonomous AI assistant for **NDTechHub** (ndtechhub.com). You can ask me about our flagship applications (*NIA 1.0, ND Studio, Stock Manager, Hospital Management, School Management*), request custom engineering, or estimate project pricing!
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 pt-1" id="chat-chips">
+        <button onclick="sendQuickPrompt('Tell me about NIA 1.0')" class="text-[10px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-sky-300 transition-colors">About NIA 1.0</button>
+        <button onclick="sendQuickPrompt('How do I download Stock Manager?')" class="text-[10px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-sky-300 transition-colors">Stock Manager App</button>
+        <button onclick="sendQuickPrompt('Can you build a custom SaaS for me?')" class="text-[10px] px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-sky-300 transition-colors">Custom Development Quote</button>
+      </div>
+    </div>
+    <div class="p-3 border-t border-white/10 bg-slate-950/60">
+      <form onsubmit="handleChatSubmit(event)" class="flex items-center gap-2">
+        <input type="text" id="chat-input" placeholder="Ask about our apps or custom quote..." class="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-400 placeholder:text-slate-500" />
+        <button type="submit" class="p-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold transition-all">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <navdiva-footer></navdiva-footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/ndtechhub-footer.js"></script>
+</body>
+</html>
