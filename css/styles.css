@@ -132,13 +132,11 @@ body {
 .trust-logo {
   height: 32px;
   width: auto;
-  opacity: 0.6;
-  filter: grayscale(100%);
+  opacity: 0.85;
   transition: all 0.3s ease;
 }
 .trust-logo:hover {
   opacity: 1;
-  filter: grayscale(0%);
 }
 .tech-pill {
   display: flex;
