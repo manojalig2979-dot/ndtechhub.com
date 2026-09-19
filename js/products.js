@@ -94,6 +94,25 @@ const APPS_DATA = {
     techStack: ['React', 'Express.js', 'MongoDB', 'Chart.js', 'AWS S3'],
     downloadUrl: '#download-school',
     demoUrl: 'https://ndtechhub.com/demo/school'
+  },
+  rameshta: {
+    id: 'rameshta',
+    title: 'Rameshta Devotional Hub',
+    badge: 'DEVOTIONAL PLATFORM',
+    tagline: 'Digital Spiritual Ecosystem',
+    category: 'Creative / App',
+    gradient: 'from-orange-500 via-amber-600 to-yellow-600',
+    icon: 'sun',
+    overview: 'Rameshta is a dedicated devotional platform offering spiritual content, live streaming of religious events, and a connected community for digital spiritual well-being.',
+    features: [
+      { title: 'Live Streaming', desc: 'High-quality live streams from major spiritual centers and events.' },
+      { title: 'Community Portal', desc: 'Interactive forums and discussion boards for devotees.' },
+      { title: 'Digital Library', desc: 'Extensive collection of scriptures, chants, and devotional music.' },
+      { title: 'Event Calendar', desc: 'Track upcoming religious festivals, timings, and rituals.' }
+    ],
+    techStack: ['React', 'Node.js', 'Firebase', 'Tailwind CSS'],
+    downloadUrl: 'https://rameshta.online/',
+    demoUrl: 'https://rameshta.online/'
   }
 };
 

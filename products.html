@@ -97,7 +97,7 @@
           </p>
         </div>
         <div class="flex flex-wrap gap-2">
-          <button onclick="filterProjects('all')" id="filter-all" class="px-4 py-1.5 rounded-full text-xs font-medium bg-sky-500 text-slate-950 filter-btn">All Systems (5)</button>
+          <button onclick="filterProjects('all')" id="filter-all" class="px-4 py-1.5 rounded-full text-xs font-medium bg-sky-500 text-slate-950 filter-btn">All Systems (6)</button>
           <button onclick="filterProjects('ai')" id="filter-ai" class="px-4 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 filter-btn">AI & Agents</button>
           <button onclick="filterProjects('saas')" id="filter-saas" class="px-4 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 filter-btn">Enterprise SaaS</button>
           <button onclick="filterProjects('creative')" id="filter-creative" class="px-4 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 filter-btn">Creative Tools</button>
@@ -133,9 +133,9 @@
               <i data-lucide="eye" class="w-3.5 h-3.5"></i>
               <span>Details & Specs</span>
             </button>
-            <button onclick="triggerDownload('NIA 1.0')" class="px-3.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold transition-colors shadow-md shadow-sky-500/30" title="Download Application">
-              <i data-lucide="download" class="w-4 h-4"></i>
-            </button>
+            <a href="https://nia.ndtechhub.com/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 flex items-center justify-center rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold transition-colors shadow-md shadow-sky-500/30" title="Visit Website">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
 
@@ -167,9 +167,9 @@
               <i data-lucide="eye" class="w-3.5 h-3.5"></i>
               <span>Details & Specs</span>
             </button>
-            <button onclick="triggerDownload('ND Studio')" class="px-3.5 py-2 rounded-xl bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold transition-colors shadow-md shadow-purple-500/30" title="Download Application">
-              <i data-lucide="download" class="w-4 h-4"></i>
-            </button>
+            <a href="https://ndstudio-79509.web.app/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 flex items-center justify-center rounded-xl bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold transition-colors shadow-md shadow-purple-500/30" title="Visit Website">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
 
@@ -235,9 +235,9 @@
               <i data-lucide="eye" class="w-3.5 h-3.5"></i>
               <span>Details & Specs</span>
             </button>
-            <button onclick="triggerDownload('Hospital Management')" class="px-3.5 py-2 rounded-xl bg-rose-500 hover:bg-rose-400 text-white text-xs font-bold transition-colors shadow-md shadow-rose-500/30" title="Download Application">
-              <i data-lucide="download" class="w-4 h-4"></i>
-            </button>
+            <a href="https://ndmedcare.web.app/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 flex items-center justify-center rounded-xl bg-rose-500 hover:bg-rose-400 text-white text-xs font-bold transition-colors shadow-md shadow-rose-500/30" title="Visit Website">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
 
@@ -272,6 +272,40 @@
             <button onclick="triggerDownload('School Management')" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-colors shadow-md shadow-amber-500/30" title="Download Application">
               <i data-lucide="download" class="w-4 h-4"></i>
             </button>
+          </div>
+        </div>
+
+        <!-- App Item 6: Rameshta Devotional Hub -->
+        <div class="project-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-orange-500/40 transition-all" data-category="creative">
+          <div>
+            <div class="h-44 rounded-2xl bg-gradient-to-br from-slate-900 via-orange-950 to-amber-950 border border-white/10 p-5 flex flex-col justify-between relative overflow-hidden mb-5">
+              <div class="flex justify-between items-start">
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30">DEVOTIONAL</span>
+                <i data-lucide="sun" class="w-8 h-8 text-orange-400"></i>
+              </div>
+              <div>
+                <div class="text-xs text-orange-400 font-mono">Spiritual Platform</div>
+                <div class="font-display font-bold text-xl text-white">Rameshta Hub</div>
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2">Rameshta Devotional Hub</h3>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              A comprehensive digital spiritual ecosystem offering live streams, devotional content, and a connected community platform.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">React</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Firebase</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Tailwind</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 pt-4 border-t border-white/10">
+            <button onclick="openAppModal('rameshta')" class="flex-1 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>Details & Specs</span>
+            </button>
+            <a href="https://rameshta.online/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 flex items-center justify-center rounded-xl bg-orange-500 hover:bg-orange-400 text-white text-xs font-bold transition-colors shadow-md shadow-orange-500/30" title="Visit Website">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
       </div>

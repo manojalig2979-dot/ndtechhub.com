@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Post — NDTechHub Blog</title>
+  <meta name="description" content="Read this post on the NDTechHub Blog.">
+
+  <!-- Search Engine Directives -->
+  <link rel="canonical" href="https://ndtechhub.com/blog-post">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ndtechhub.com/blog-post">
+  <meta property="og:title" content="Blog Post — NDTechHub Blog">
+  <meta property="og:description" content="Read this post on the NDTechHub Blog.">
+  <meta property="og:image" content="https://ndtechhub.com/assets/logos/ndtechhub.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ndtechhub.com/blog-post">
+  <meta name="twitter:title" content="Blog Post — NDTechHub Blog">
+  <meta name="twitter:description" content="Read this post on the NDTechHub Blog.">
+  <meta name="twitter:image" content="https://ndtechhub.com/assets/logos/ndtechhub.webp">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-23XBQD2Z6F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-23XBQD2Z6F');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bento.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style>
+    /* Reading Progress Bar */
+    #read-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, #00f2fe, #4facfe, #8b5cf6);
+      z-index: 9999; transition: width .1s linear;
+    }
+    .blog-header-bar {
+       display: flex; align-items: center; justify-content: space-between;
+       padding: 18px 32px; background: rgba(8,12,20,.92);
+       backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,.07);
+       position: sticky; top: 0; z-index: 100;
+       pointer-events: auto;
+    }
+    .blog-header-bar .logo {
+      font-size: 20px; font-weight: 900; color: #fff; text-decoration: none;
+      display: flex; align-items: center; gap: 6px; letter-spacing: -.03em;
+    }
+    .blog-header-bar .logo span { color: #00f2fe; }
+    .blog-tag {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      background: rgba(0,242,254,.08); border: 1px solid rgba(0,242,254,.15);
+      color: rgba(0,242,254,.8); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    /* Quill content styles (read-only) */
+    .blog-post-content { color: rgba(255,255,255,.82); font-size: 16px; line-height: 1.85; }
+    .blog-post-content h1,.blog-post-content h2,.blog-post-content h3 {
+      color: #fff; font-weight: 800; letter-spacing: -.02em; margin: 2rem 0 .8rem;
+    }
+    .blog-post-content h1 { font-size: 2rem; }
+    .blog-post-content h2 { font-size: 1.5rem; }
+    .blog-post-content h3 { font-size: 1.2rem; color: #00f2fe; }
+    .blog-post-content p  { margin: 0 0 1.4rem; }
+    .blog-post-content a  { color: #00f2fe; text-decoration: underline; }
+    .blog-post-content blockquote {
+      border-left: 3px solid #00f2fe; padding: 4px 0 4px 20px;
+      margin: 1.5rem 0; color: rgba(255,255,255,.6); font-style: italic;
+    }
+    .blog-post-content pre {
+      background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 20px; overflow-x: auto;
+      font-size: 13px; line-height: 1.7; color: #a5f3fc; margin: 1.5rem 0;
+    }
+    .blog-post-content ul,.blog-post-content ol { padding-left: 24px; margin: 0 0 1.4rem; }
+    .blog-post-content li { margin-bottom: .4rem; }
+    .blog-post-content img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+    .blog-post-content strong { color: #fff; font-weight: 700; }
+  </style>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/firebase-init.js"></script>
+</head>
+<body class="selection:bg-brand-500/30 selection:text-brand-400 font-sans antialiased min-h-screen relative flex flex-col justify-between text-slate-300">
+  <div class="ambient-orb w-[600px] h-[600px] bg-sky-600/15 top-[-100px] left-1/2 -translate-x-1/2 animation-float-slow"></div>
+  <div class="ambient-orb w-[500px] h-[500px] bg-purple-600/15 top-[600px] -left-40 animation-float-reverse"></div>
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-20" style="background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+
+  <div id="read-progress"></div>
+
+  <div id="read-progress"></div>
+
+    <!-- Floating Bento Navbar (2026 Modern Island Architecture) -->
+  
+  <header class="fixed top-5 inset-x-0 z-50 flex justify-center px-4">
+    <nav class="liquid-glass rounded-full px-4 py-2.5 flex items-center justify-between gap-3 md:gap-8 max-w-5xl w-full shadow-2xl transition-all duration-300">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 via-sky-400 to-brand-violet flex items-center justify-center p-0.5 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-slate-950/80 rounded-[10px] flex items-center justify-center backdrop-blur-md">
+            <span class="font-display font-extrabold text-sm tracking-tighter text-white">ND</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-sm tracking-wide text-white flex items-center gap-1.5">
+            NDTechHub
+            <span class="text-[9px] px-1.5 py-0.2 rounded font-mono bg-sky-500/20 text-sky-400 border border-sky-500/30">LABS</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">ndtechhub.com</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/10 text-xs font-medium text-slate-300">
+        <a href="index.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Home</a>
+        <a href="products.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Products & Apps</a>
+        <a href="services.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Services</a>
+        <a href="about.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">About</a>
+        <a href="contact.html" class="px-4 py-1.5 rounded-full transition-all hover:text-white nav-link">Contact</a>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="contact.html" class="relative group px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium text-xs shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-1.5">
+          <span>Start Build</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+
+  <div style="height: 60px;"></div>
+
+  <!-- Post Content -->
+  <main style="max-width:900px;margin:0 auto;padding:48px 32px 80px;" id="post-container">
+    <div style="text-align:center;padding:60px 20px;color:rgba(255,255,255,.6);">
+      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 12px;">NDTechHub Technical Blog & Insights</h1>
+      <p style="max-width: 600px; margin: 0 auto 24px; font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.6;">Explore deep technical articles, benchmark logs, and zero-bloat web architecture guides from NDTechHub & NAVDIVA Group.</p>
+      <div style="width:40px;height:40px;border-radius:50%;border:3px solid rgba(0,242,254,.3);border-top-color:#00f2fe;animation:spin 1s linear infinite;margin:0 auto 20px;"></div>
+      <p style="font-size:13px; color:rgba(255,255,255,.4);">Loading article content...</p>
+    </div>
+    <noscript>
+      <div style="padding: 40px; background: rgba(255,255,255,0.05); border-radius: 16px; margin-top: 20px; text-align: center;">
+        <h2 style="color: #fff;">JavaScript Required</h2>
+        <p style="color: rgba(255,255,255,0.8); margin-top: 10px;">Please enable JavaScript to view dynamic articles, or browse our <a href="blog" style="color: #00f2fe; text-decoration: underline;">Blog Index</a>.</p>
+      </div>
+    </noscript>
+  </main>
+
+
+  <navdiva-footer></navdiva-footer>
+
+  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/ndtechhub-footer.js"></script>
+  <script type="module" src="js/blog-post.js"></script>
+</body>
+</html>
