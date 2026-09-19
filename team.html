@@ -114,10 +114,38 @@
           <span>Start Build</span>
           <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
         </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-full hover:bg-white/10 text-slate-300">
+          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+        </button>
       </div>
     </nav>
   </header>
 
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="fixed top-20 inset-x-4 z-40 liquid-glass rounded-2xl p-4 hidden md:hidden border border-white/15 transition-all">
+    <div class="flex flex-col gap-2 font-medium text-sm text-slate-300">
+      <a href="index.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Home</span> <i data-lucide="home" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="products.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Products & Apps</span> <i data-lucide="layout-grid" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="services.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Services</span> <i data-lucide="code" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="skills.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Skills</span> <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="about.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>About</span> <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
+      </a>
+      <a href="contact.html" class="px-4 py-2.5 rounded-xl hover:bg-white/10 flex items-center justify-between">
+        <span>Contact</span> <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
+      </a>
+    </div>
+  </div>
 
   <!-- Main Container -->
   <main class="relative z-10 pt-28 md:pt-36 pb-24 px-4 sm:px-6 max-w-7xl mx-auto w-full flex-grow">
@@ -133,11 +161,13 @@
       
       <!-- Member 1: Manoj Singh (Founder & Lead Architect) -->
       <div class="bento-card team-profile col-span-4" style="--panel-rgb: 0, 242, 254;">
-        <div>
-          <img src="assets/team/manoj-singh.jpg" alt="Manoj Singh" class="team-avatar" style="border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);" loading="lazy" decoding="async" width="896" height="1200">
+        <div class="flex flex-col items-center text-center">
+          <div class="team-avatar-frame" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.8), rgba(79, 172, 254, 0.2)); box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);">
+            <img src="assets/team/manoj-singh.jpg" alt="Manoj Singh" class="team-avatar" loading="lazy" decoding="async" width="96" height="124">
+          </div>
           <span class="role-badge" style="color: var(--cyan-electric); background: rgba(0, 242, 254, 0.12); border-color: rgba(0, 242, 254, 0.3);">Founder &amp; Lead Architect</span>
-          <h3 class="font-display font-bold text-xl text-white mb-3" style="font-size: 20px; margin-bottom: 8px;">Manoj Singh</h3>
-          <p class="text-slate-300 text-sm leading-relaxed mb-4" style="font-size: 13px;">Leads product direction, engineering quality, and long-term digital strategy for clients.</p>
+          <h3 class="font-display font-bold text-xl text-white mb-2" style="font-size: 20px;">Manoj Singh</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4" style="font-size: 13px;">Leads product direction, engineering quality, and long-term digital strategy for clients.</p>
         </div>
         <div style="margin-top: 16px;">
           <a href="https://www.linkedin.com/in/manoj-singh-43774789/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile" style="background: rgba(0, 242, 254, 0.1); border-color: rgba(0, 242, 254, 0.25); color: var(--cyan-electric);">
@@ -148,14 +178,16 @@
 
       <!-- Member 2: Navya Singh (Creative Strategist) -->
       <div class="bento-card team-profile col-span-4" style="--panel-rgb: 139, 92, 246;">
-        <div>
-          <img src="assets/team/navya-singh.jpg" alt="Navya Singh" class="team-avatar" style="border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);" loading="lazy" decoding="async" width="1080" height="1440">
-          <span class="role-badge" style="color: rgb(139, 92, 246); background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.3);">Creative Strategist</span>
-          <h3 class="font-display font-bold text-xl text-white mb-3" style="font-size: 20px; margin-bottom: 8px;">Navya Singh</h3>
-          <p class="text-slate-300 text-sm leading-relaxed mb-4" style="font-size: 13px;">Shapes brand narratives, campaign ideas, and content direction to align creative execution with business goals.</p>
+        <div class="flex flex-col items-center text-center">
+          <div class="team-avatar-frame" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.8), rgba(139, 92, 246, 0.2)); box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);">
+            <img src="assets/team/navya-singh.jpg" alt="Navya Singh" class="team-avatar" loading="lazy" decoding="async" width="96" height="124">
+          </div>
+          <span class="role-badge" style="color: rgb(168, 85, 247); background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.3);">Creative Strategist</span>
+          <h3 class="font-display font-bold text-xl text-white mb-2" style="font-size: 20px;">Navya Singh</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4" style="font-size: 13px;">Shapes brand narratives, campaign ideas, and content direction to align creative execution with business goals.</p>
         </div>
         <div style="margin-top: 16px;">
-          <a href="https://www.linkedin.com/in/navya-singh0304" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile" style="background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25); color: rgb(139, 92, 246);">
+          <a href="https://www.linkedin.com/in/navya-singh0304" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile" style="background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.25); color: rgb(168, 85, 247);">
             <i data-lucide="linkedin" style="width: 18px; height: 18px;"></i>
           </a>
         </div>
@@ -163,11 +195,13 @@
 
       <!-- Member 3: Rakhi Kushwaha (UI/UX Designer) -->
       <div class="bento-card team-profile col-span-4" style="--panel-rgb: 16, 185, 129;">
-        <div>
-          <img src="assets/team/rakhi-kushwaha.jpg" alt="Rakhi Kushwaha" class="team-avatar" style="border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);" loading="lazy" decoding="async" width="1200" height="1600">
+        <div class="flex flex-col items-center text-center">
+          <div class="team-avatar-frame" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(5, 150, 105, 0.2)); box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);">
+            <img src="assets/team/rakhi-kushwaha.jpg" alt="Rakhi Kushwaha" class="team-avatar" loading="lazy" decoding="async" width="96" height="124">
+          </div>
           <span class="role-badge" style="color: rgb(16, 185, 129); background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3);">UI/UX Designer</span>
-          <h3 class="font-display font-bold text-xl text-white mb-3" style="font-size: 20px; margin-bottom: 8px;">Rakhi Kushwaha</h3>
-          <p class="text-slate-300 text-sm leading-relaxed mb-4" style="font-size: 13px;">Designs conversion-focused user journeys with modern visual systems and clean usability.</p>
+          <h3 class="font-display font-bold text-xl text-white mb-2" style="font-size: 20px;">Rakhi Kushwaha</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4" style="font-size: 13px;">Designs conversion-focused user journeys with modern visual systems and clean usability.</p>
         </div>
         <div style="margin-top: 16px;">
           <a href="https://www.linkedin.com/in/rakhikushwaha" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25); color: rgb(16, 185, 129);">
