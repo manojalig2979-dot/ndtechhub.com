@@ -25,14 +25,18 @@ function showToast(msg) {
 
 function setActiveNav() {
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Normalize path just in case
     if (currentPath === '') currentPath = 'index.html';
+    const baseCurrent = currentPath.replace(/\.html$/, '');
     
     const navLinks = document.querySelectorAll('header nav a.nav-link');
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (linkPath === currentPath) {
+        const linkPath = link.getAttribute('href') || '';
+        const baseLink = linkPath.replace(/\.html$/, '');
+        if (
+            linkPath === currentPath ||
+            baseLink === baseCurrent ||
+            (baseLink === 'blog' && (baseCurrent === 'blog-post' || baseCurrent === 'blog-editor'))
+        ) {
             link.classList.add('nav-pill-active');
         } else {
             link.classList.remove('nav-pill-active');

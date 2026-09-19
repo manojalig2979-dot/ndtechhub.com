@@ -389,6 +389,7 @@ class NavdivaFooter extends HTMLElement {
                                 </a>
                             </li>
                             <li><a href="press-release">Press Releases</a></li>
+                            <li><a href="blog">Engineering Blog</a></li>
                             <li><a href="about">About Us</a></li>
                             <li><a href="contact">Contact Us</a></li>
                             <li><a href="contact?type=feedback">Leave Feedback</a></li>
@@ -405,6 +406,7 @@ class NavdivaFooter extends HTMLElement {
                         <span style="color: var(--text-main);">ND</span><span style="color: var(--cyan-electric);">TechHub</span>
                     </div>
                     <div class="bottom-links">
+                        <a href="blog">Blog</a>
                         <a href="privacy-policy">Privacy Policy</a>
                         <a href="cookie-policy">Cookie Policy</a>
                         <a href="contact">Contact Us</a>
