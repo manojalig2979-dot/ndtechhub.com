@@ -75,44 +75,48 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // 2. Load Posts from Firebase Realtime Database
-    try {
-        const snapshot = await get(child(dbRef(database), 'posts'));
-        let dbPosts = [];
-        if (snapshot.exists()) {
-            const val = snapshot.val();
-            dbPosts = Object.values(val).filter(p => p.published !== false);
-        }
-
-        // Combine DB posts with seed posts (avoid duplicates by ID or slug)
-        const combined = [...dbPosts];
-        SEED_POSTS.forEach(seed => {
-            if (!combined.some(p => p.slug === seed.slug || p.id === seed.id)) {
-                combined.push(seed);
-            }
-        });
-
-        // Sort descending by date
-        combined.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-        allPosts = combined;
-    } catch (err) {
-        console.warn("Could not reach Firebase Database. Using offline seed posts:", err);
-        allPosts = [...SEED_POSTS];
-    }
-
-    // 3. Render Tag Filters
+    // 2. Immediately render seed posts with zero wait
+    allPosts = [...SEED_POSTS];
     renderTagFilters(tagFilterBar);
-
-    // 4. Render Initial Grid
     renderPosts(grid);
 
-    // 5. Setup Search Listener
+    // 3. Setup Search Listener
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase().trim();
             renderPosts(grid);
         });
     }
+
+    // 4. Asynchronously fetch latest posts from Firebase Realtime Database
+    (async () => {
+        try {
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Firebase DB timeout')), 4000)
+            );
+            const snapshot = await Promise.race([
+                get(child(dbRef(database), 'posts')),
+                timeoutPromise
+            ]);
+
+            if (snapshot && snapshot.exists()) {
+                const val = snapshot.val();
+                const dbPosts = Object.values(val).filter(p => p.published !== false);
+                const combined = [...dbPosts];
+                SEED_POSTS.forEach(seed => {
+                    if (!combined.some(p => p.slug === seed.slug || p.id === seed.id)) {
+                        combined.push(seed);
+                    }
+                });
+                combined.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+                allPosts = combined;
+                renderTagFilters(tagFilterBar);
+                renderPosts(grid);
+            }
+        } catch (err) {
+            console.info("Using seed posts (Firebase DB offline or not yet initialized):", err.message);
+        }
+    })();
 });
 
 function renderTagFilters(container) {

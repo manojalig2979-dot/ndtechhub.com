@@ -127,27 +127,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let post = null;
 
-    // 3. Fetch from Firebase Realtime Database
-    try {
-        const snapshot = await get(child(dbRef(database), 'posts'));
-        if (snapshot.exists()) {
-            const postsObj = snapshot.val();
-            const postsList = Object.values(postsObj);
-            post = postsList.find(p => (slug && p.slug === slug) || (id && p.id === id) || p.slug === id || p.id === slug);
+    // 3. Check seed posts for immediate zero-wait render
+    post = SEED_POSTS.find(p => (slug && p.slug === slug) || (id && p.id === id) || p.slug === id || p.id === slug);
+    if (post) {
+        renderPost(postContainer, post);
+    }
+
+    // 4. Asynchronously fetch latest content from Firebase Realtime Database
+    (async () => {
+        try {
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Firebase DB timeout')), 3500)
+            );
+            const snapshot = await Promise.race([
+                get(child(dbRef(database), 'posts')),
+                timeoutPromise
+            ]);
+            if (snapshot && snapshot.exists()) {
+                const postsObj = snapshot.val();
+                const postsList = Object.values(postsObj);
+                const dbPost = postsList.find(p => (slug && p.slug === slug) || (id && p.id === id) || p.slug === id || p.id === slug);
+                if (dbPost) {
+                    post = dbPost;
+                    renderPost(postContainer, dbPost);
+                }
+            }
+        } catch (err) {
+            console.info("Using seed post fallback:", err.message);
         }
-    } catch (err) {
-        console.warn("Could not query Firebase Realtime Database:", err);
-    }
 
-    // 4. Fallback to Seed Posts
-    if (!post) {
-        post = SEED_POSTS.find(p => (slug && p.slug === slug) || (id && p.id === id) || p.slug === id || p.id === slug);
-    }
-
-    if (!post) {
-        renderNotFound(postContainer);
-        return;
-    }
+        if (!post) {
+            renderNotFound(postContainer);
+        }
+    })();
 
     // 5. Check if current user is admin to show Edit button
     let isAdminUser = false;
