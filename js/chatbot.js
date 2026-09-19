@@ -1,4 +1,22 @@
-// chatbot.js
+// chatbot.js — NIA 1.0 Powered by Groq Cloud AI
+
+const NDT_SYSTEM_PROMPT = `You are NIA 1.0, the intelligent AI assistant for NDTechHub (ndtechhub.com) — a Delhi-based software company founded by Manoj Singh. You are embedded on the NDTechHub website to help visitors.
+
+Key facts about NDTechHub:
+- Services: Custom web apps, mobile apps, AI integrations, SaaS platforms, logo & branding, API integrations, admin dashboards, domain & hosting, monthly maintenance.
+- Products: NIA 1.0 (AI Agent, live at nia.ndtechhub.com), Rameshta Devotional Hub (rameshta.online), Hospital Care SaaS (ndmedcare.web.app), ND Studio (ndstudio-79509.web.app).
+- Pricing: Websites from ₹15,000, Web Apps from ₹50,000, Mobile Apps from ₹75,000, Logo Design from ₹3,500.
+- Contact: hello@ndtechhub.com | +91 8587001712 | 105-B Shiv Vihar, Karawal Nagar, Delhi 110094.
+- Registered: UDYAM-DL-05-0079535 (A unit of NAVDIVA GROUP).
+
+Instructions:
+- Be concise, warm, and professional. 
+- Answer questions about NDTechHub's services, products, and pricing accurately.
+- For custom quotes or partnerships, direct users to contact@ndtechhub.com or the Contact page.
+- If asked something unrelated to NDTechHub, gently bring the conversation back.
+- Use markdown formatting (bold, bullets) to keep responses readable.
+- Keep responses under 120 words unless the user needs detailed information.`;
+
 function toggleChatbot() {
     const windowEl = document.getElementById('chatbot-window');
     windowEl.classList.toggle('hidden');
@@ -29,52 +47,115 @@ function handleChatSubmit(e) {
     input.value = '';
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
-    // Generate Intelligent Response
-    setTimeout(() => {
-        const botResponse = generateNiaResponse(userText);
-        const botBubble = document.createElement('div');
-        botBubble.className = "flex items-start gap-2 max-w-[90%]";
-        botBubble.innerHTML = `
-          <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex-shrink-0 flex items-center justify-center mt-0.5">
-            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
-          </div>
-          <div class="p-3 rounded-2xl rounded-tl-none bg-white/10 border border-white/10 text-slate-200">
-            ${botResponse}
-          </div>
-        `;
-        chatContainer.appendChild(botBubble);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-        if(typeof lucide !== 'undefined') lucide.createIcons();
-    }, 600);
+    // Show typing indicator
+    const typingId = 'typing-' + Date.now();
+    const typingBubble = document.createElement('div');
+    typingBubble.id = typingId;
+    typingBubble.className = "flex items-start gap-2 max-w-[90%]";
+    typingBubble.innerHTML = `
+      <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex-shrink-0 flex items-center justify-center mt-0.5">
+        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+      </div>
+      <div class="p-3 rounded-2xl rounded-tl-none bg-white/10 border border-white/10 text-slate-400 text-sm italic">
+        NIA is thinking...
+      </div>
+    `;
+    chatContainer.appendChild(typingBubble);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Try Groq first, fall back to local response
+    const groqKey = localStorage.getItem('ndg_groq_api_key');
+    const groqModel = localStorage.getItem('ndg_groq_model') || 'llama3-8b-8192';
+
+    if (groqKey) {
+        callGroqAPI(userText, groqKey, groqModel)
+            .then(reply => renderBotReply(chatContainer, typingId, reply))
+            .catch(() => renderBotReply(chatContainer, typingId, generateNiaFallback(userText)));
+    } else {
+        setTimeout(() => {
+            renderBotReply(chatContainer, typingId, generateNiaFallback(userText));
+        }, 500);
+    }
 }
 
-function generateNiaResponse(query) {
+async function callGroqAPI(userMessage, apiKey, model) {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+            model: model,
+            messages: [
+                { role: 'system', content: NDT_SYSTEM_PROMPT },
+                { role: 'user', content: userMessage }
+            ],
+            max_tokens: 200,
+            temperature: 0.7
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error(`Groq API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data?.choices?.[0]?.message?.content || generateNiaFallback(userMessage);
+}
+
+function renderBotReply(chatContainer, typingId, replyText) {
+    // Remove typing indicator
+    const typingEl = document.getElementById(typingId);
+    if (typingEl) typingEl.remove();
+
+    // Simple markdown-like rendering: **bold**, bullet points
+    const formatted = replyText
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n- /g, '<br>• ')
+        .replace(/\n/g, '<br>');
+
+    const botBubble = document.createElement('div');
+    botBubble.className = "flex items-start gap-2 max-w-[90%]";
+    botBubble.innerHTML = `
+      <div class="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 flex-shrink-0 flex items-center justify-center mt-0.5">
+        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+      </div>
+      <div class="p-3 rounded-2xl rounded-tl-none bg-white/10 border border-white/10 text-slate-200" style="line-height: 1.6;">
+        ${formatted}
+      </div>
+    `;
+    chatContainer.appendChild(botBubble);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+// Local keyword fallback — used when no Groq API key is configured
+function generateNiaFallback(query) {
     const q = query.toLowerCase();
 
     if (q.includes('nia') || q.includes('agent') || q.includes('ai')) {
-        return `**NIA 1.0** is our flagship autonomous agent built by NDTechHub! It features multimodal tool usage, direct file indexing, and natural speech synthesis. You can view its case study on the **Products & Apps** page or download its binary.`;
+        return `**NIA 1.0** is our flagship AI assistant built by NDTechHub! It features multimodal tool usage, natural conversation, and real-time knowledge. Try it live at **nia.ndtechhub.com**!`;
     }
     if (q.includes('studio') || q.includes('creative') || q.includes('design')) {
-        return `**ND Studio** is our high-performance creative workstation featuring WebAssembly vector rendering, instantaneous design-to-code exports, and real-time canvas collaboration.`;
+        return `**ND Studio** is our creative workstation with powerful design-to-code exports. Try it at **ndstudio-79509.web.app**.`;
     }
-    if (q.includes('stock') || q.includes('inventory') || q.includes('ledger')) {
-        return `**Stock Manager** is our retail & warehouse inventory ERP with barcode POS integration, low-stock predictive replenishment, and automated tax accounting. Would you like to schedule a demonstration?`;
+    if (q.includes('hospital') || q.includes('health') || q.includes('clinic') || q.includes('medcare')) {
+        return `Our **Hospital Care SaaS** handles patient records, appointments, pharmacy, and ICU management. Live demo at **ndmedcare.web.app**.`;
     }
-    if (q.includes('hospital') || q.includes('health') || q.includes('clinic')) {
-        return `Our **Hospital Management SaaS** handles patient EMRs, automated ICU bed allocations, pharmacy dispensing, and doctor appointments under strict HIPAA security protocols.`;
+    if (q.includes('rameshta') || q.includes('devotional') || q.includes('spiritual')) {
+        return `**Rameshta** is our devotional platform with bhajans, mantras, and spiritual content. Visit **rameshta.online**!`;
     }
-    if (q.includes('school') || q.includes('edtech') || q.includes('student')) {
-        return `**School Nexus** is our multi-campus institutional ERP managing 50,000+ students, automated fee payments, digital report cards, and attendance tracking.`;
+    if (q.includes('price') || q.includes('cost') || q.includes('quote') || q.includes('budget') || q.includes('rate')) {
+        return `Our pricing:\n- **Websites**: from ₹15,000\n- **Web Apps**: from ₹50,000\n- **Mobile Apps**: from ₹75,000\n- **Logo Design**: from ₹3,500\n\nContact us at **hello@ndtechhub.com** for a custom quote!`;
     }
-    if (q.includes('price') || q.includes('cost') || q.includes('quote') || q.includes('estimate') || q.includes('budget')) {
-        return `Our custom software builds typically range from **$1,500 for rapid MVPs** to **$5,000+ for enterprise multi-tenant systems**. You can use our interactive **Scope Estimator** in the Services tab or submit an inquiry in the Contact page!`;
+    if (q.includes('contact') || q.includes('hire') || q.includes('call') || q.includes('whatsapp') || q.includes('reach')) {
+        return `Reach us at:\n- **Email**: hello@ndtechhub.com\n- **Phone**: +91 8587001712\n- **Location**: Delhi, India\n\nOr visit our **Contact** page!`;
     }
-    if (q.includes('download') || q.includes('apk') || q.includes('app')) {
-        return `You can download all NDTechHub apps directly from the **Products & Portfolio** tab by tapping the download icon next to each product.`;
-    }
-    if (q.includes('contact') || q.includes('hire') || q.includes('call') || q.includes('whatsapp')) {
-        return `You can reach the NDTechHub founders directly at **contact@ndtechhub.com** or tap the **WhatsApp icon on the bottom-left** of your screen for instant chat!`;
+    if (q.includes('service') || q.includes('what do you') || q.includes('what can')) {
+        return `NDTechHub builds:\n- **Custom Web & Mobile Apps**\n- **AI Integrations & Chatbots**\n- **SaaS Platforms**\n- **Logo & Branding**\n- **Domain, Hosting & Maintenance**\n\nCheck the **Services** tab for full details!`;
     }
 
-    return `At **NDTechHub (ndtechhub.com)**, we specialize in high-velocity software engineering: custom AI agents (NIA 1.0), enterprise SaaS, and mobile platforms. Feel free to navigate to our **Products** or **Services** tabs, or let me know if you want a custom quote!`;
+    return `Hi! I'm **NIA**, NDTechHub's AI assistant. We build custom web apps, mobile apps, AI integrations, and SaaS platforms. How can I help you today?\n\n📧 hello@ndtechhub.com | 📞 +91 8587001712`;
 }
