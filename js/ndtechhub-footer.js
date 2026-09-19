@@ -367,7 +367,8 @@ class NavdivaFooter extends HTMLElement {
                         <h4>Our Services</h4>
                         <ul>
                             <li><a href="services">Web Development</a></li>
-                            <li><a href="portfolio">Portfolio</a></li>
+                            <li><a href="skills">Skills & Expertise</a></li>
+                            <li><a href="products">Products & Apps</a></li>
                         </ul>
                         <div style="margin-top: 1.5rem;">
                             <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">NDTechHub Connect:</h4>
