@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /blog-editor.html
+Disallow: /admin
+Disallow: /blog-editor
+
+# Host & Sitemaps
+Host: https://ndtechhub.com
+Sitemap: https://ndtechhub.com/sitemap.xml
