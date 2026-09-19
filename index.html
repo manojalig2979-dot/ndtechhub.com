@@ -578,6 +578,10 @@
           <button onclick="filterPricing('all', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-sky-500/20 text-sky-300 border border-sky-400/40 font-semibold transition-all">
             All Packages
           </button>
+          <button onclick="filterPricing('ai', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 border border-white/10 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1.5">
+            <i data-lucide="bot" class="w-3.5 h-3.5 text-sky-400"></i>
+            <span>AI Agents &amp; Workflows</span>
+          </button>
           <button onclick="filterPricing('web', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 border border-white/10 hover:text-white hover:bg-white/10 transition-all">
             Web &amp; Application Development
           </button>
@@ -733,7 +737,478 @@
 
         </div>
 
-        <!-- 2. Specialty Services: Retainers, Performance, Consulting & Security (Grid) -->
+        <!-- 2. AI AGENTS & AUTONOMOUS SYSTEMS: TIERS, PASS-THROUGH BILLING & SCOPING -->
+        <div class="pricing-group flex flex-col gap-10" data-category="ai">
+          
+          <!-- Guiding Rule / Principle Callout Banner -->
+          <div class="p-6 sm:p-8 rounded-3xl liquid-glass border border-sky-400/30 bg-gradient-to-r from-sky-950/40 via-indigo-950/25 to-purple-950/40 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-20 -top-20 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+              <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono text-sky-300 bg-sky-500/15 border border-sky-400/30 mb-3 shadow-inner">
+                  <i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i>
+                  <span>AI Agent Quotation Architecture</span>
+                </div>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+                  To Quote the Right Price, Separate Build Fees From Operating Costs
+                </h3>
+                <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                  Never quote a single flat rate without defining the complexity tier. A major trap in AI engineering is absorbing client API consumption costs out of your own margin. We architect every quote into two transparent components: a scope-locked one-time engineering fee and pass-through client operating costs.
+                </p>
+              </div>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 self-stretch lg:self-auto flex-shrink-0">
+                <div class="px-4 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300 flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Pass-Through Billing</span>
+                </div>
+                <a href="#ai-scope-checklist" class="px-4 py-2.5 rounded-2xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-400/40 text-xs font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap">
+                  <span>Scope Checklist</span>
+                  <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 1: IDENTIFY THE PROJECT COMPLEXITY TIER -->
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-400/30 flex items-center justify-center font-mono font-bold text-xs">
+                  01
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-lg text-white">Step 1: Identify the Project Complexity Tier</h4>
+                  <p class="text-slate-400 text-xs">Calibrated market rates for domestic Indian deployment &amp; global / US clientele.</p>
+                </div>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">INR (₹)</span>
+                <span>/</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">USD ($)</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <!-- Tier 1: Simple / Starter -->
+              <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-sky-400/40 hover:-translate-y-1.5 transition-all duration-300 relative group">
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 font-semibold">
+                      Tier 1: Simple / Starter
+                    </span>
+                    <i data-lucide="message-square" class="w-4 h-4 text-sky-400"></i>
+                  </div>
+                  <h5 class="font-display font-bold text-xl text-white">Custom Prompt &amp; Document Search</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mt-1.5 mb-5">
+                    Basic document indexing, PDF question-answering (RAG), and single-channel chat interface for knowledge retrieval.
+                  </p>
+                  
+                  <div class="text-[11px] font-mono text-sky-400 font-semibold uppercase tracking-wider mb-2.5">
+                    What It Does:
+                  </div>
+                  <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Custom prompt logic &amp; deterministic guardrails</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Document search (basic RAG / PDF Q&amp;A pipeline)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Single-channel deployment (Telegram or Web chat)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Clean responsive user chat interface</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-5 border-t border-white/10">
+                  <div class="text-[11px] text-slate-400 font-mono mb-1">Market Charge Benchmark:</div>
+                  <div class="flex items-baseline justify-between mb-1.5">
+                    <span class="font-display font-black text-2xl text-white">₹25,000 – ₹50,000</span>
+                    <span class="text-[11px] font-semibold text-emerald-400">India / Remote</span>
+                  </div>
+                  <div class="flex items-baseline justify-between text-xs font-mono text-slate-400 mb-5 pb-1">
+                    <span class="font-bold text-sky-300">$500 – $1,500</span>
+                    <span>Global / US Clients</span>
+                  </div>
+                  <a href="contact.html?plan=ai-tier1" class="w-full py-2.5 rounded-xl border border-white/15 bg-white/5 hover:bg-sky-500/20 hover:border-sky-400/50 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5">
+                    <span>Quote Tier 1 Agent</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Tier 2: Intermediate (Featured) -->
+              <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-sky-400/50 hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 relative group shadow-2xl shadow-sky-500/15">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-[10px] font-mono uppercase tracking-wider font-bold shadow-md shadow-sky-500/30">
+                  Most Popular
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">
+                      Tier 2: Intermediate
+                    </span>
+                    <i data-lucide="workflow" class="w-4 h-4 text-indigo-400"></i>
+                  </div>
+                  <h5 class="font-display font-bold text-xl text-white">Multi-Tool Calling &amp; Session Memory</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mt-1.5 mb-5">
+                    Autonomous action dispatching, external system sync, user session memory, and multi-platform messaging bot integration.
+                  </p>
+                  
+                  <div class="text-[11px] font-mono text-indigo-400 font-semibold uppercase tracking-wider mb-2.5">
+                    What It Does:
+                  </div>
+                  <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Multi-tool calling (Google Calendar, Email dispatch)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Live CRM &amp; Google Sheets two-way synchronization</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Persistent user session episodic memory</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                      <span>WhatsApp Cloud API or Slack Enterprise bot integration</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-5 border-t border-white/10">
+                  <div class="text-[11px] text-slate-400 font-mono mb-1">Market Charge Benchmark:</div>
+                  <div class="flex items-baseline justify-between mb-1.5">
+                    <span class="font-display font-black text-2xl text-white">₹60,000 – ₹1,50,000</span>
+                    <span class="text-[11px] font-semibold text-emerald-400">India / Remote</span>
+                  </div>
+                  <div class="flex items-baseline justify-between text-xs font-mono text-slate-400 mb-5 pb-1">
+                    <span class="font-bold text-sky-300">$1,500 – $4,000</span>
+                    <span>Global / US Clients</span>
+                  </div>
+                  <a href="contact.html?plan=ai-tier2" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-sky-500/25">
+                    <span>Quote Tier 2 Agent</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Tier 3: Advanced / Autonomous -->
+              <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-purple-500/30 hover:border-purple-400/60 hover:-translate-y-1.5 transition-all duration-300 relative group">
+                <div>
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">
+                      Tier 3: Advanced / Autonomous
+                    </span>
+                    <i data-lucide="bot" class="w-4 h-4 text-purple-400"></i>
+                  </div>
+                  <h5 class="font-display font-bold text-xl text-white">Multi-Agent Loops &amp; Voice Interfaces</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mt-1.5 mb-5">
+                    Complex multi-agent task delegation, sandboxed code execution, local database syncing, and custom real-time voice / 3D interfaces.
+                  </p>
+                  
+                  <div class="text-[11px] font-mono text-purple-400 font-semibold uppercase tracking-wider mb-2.5">
+                    What It Does:
+                  </div>
+                  <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Multi-agent supervisory workflows &amp; task distribution</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Safe sandboxed code execution &amp; error self-correction</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Local SQL / Vector DB real-time streaming sync</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                      <span>Custom ultra-low latency voice or 3D avatar interface</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-5 border-t border-white/10">
+                  <div class="text-[11px] text-slate-400 font-mono mb-1">Market Charge Benchmark:</div>
+                  <div class="flex items-baseline justify-between mb-1.5">
+                    <span class="font-display font-black text-2xl text-white">₹1,50,000 – ₹3,50,000+</span>
+                    <span class="text-[11px] font-semibold text-emerald-400">India / Remote</span>
+                  </div>
+                  <div class="flex items-baseline justify-between text-xs font-mono text-slate-400 mb-5 pb-1">
+                    <span class="font-bold text-purple-300">$4,000 – $10,000+</span>
+                    <span>Global / US Clients</span>
+                  </div>
+                  <a href="contact.html?plan=ai-tier3" class="w-full py-2.5 rounded-xl border border-white/15 bg-white/5 hover:bg-purple-500/20 hover:border-purple-400/50 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5">
+                    <span>Quote Tier 3 Autonomous</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- STEP 2: BUILD FEE VS MONTHLY RUNNING COSTS (2-COLUMN ARCHITECTURE) -->
+          <div class="flex flex-col gap-6">
+            <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+              <div class="w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-400/30 flex items-center justify-center font-mono font-bold text-xs">
+                02
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-lg text-white">Step 2: Separate Build Fee vs. Monthly Running Costs</h4>
+                <p class="text-slate-400 text-xs">Structured milestone payments and direct pass-through client operational billing.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              <!-- Column 1: One-Time Development Fee & Milestones (lg:col-span-7) -->
+              <div class="lg:col-span-7 liquid-glass rounded-3xl p-6 sm:p-7 border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-mono font-bold text-sky-400 uppercase tracking-wide">Component A</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-[10px] font-mono">Scope-Locked Deliverable</span>
+                  </div>
+                  <h5 class="font-display font-bold text-xl text-white mb-2">One-Time Development Fee</h5>
+                  <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                    Covers requirement discovery, system architecture, prompt engineering, external system integrations, regression testing, and production setup.
+                  </p>
+
+                  <div class="text-[11px] font-mono text-slate-300 uppercase tracking-wider font-semibold mb-3 flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-3.5 h-3.5 text-sky-400"></i>
+                    <span>Standard Payment Terms (3 Milestones):</span>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                    <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-center relative overflow-hidden">
+                      <div class="absolute top-0 inset-x-0 h-1 bg-sky-400"></div>
+                      <div class="font-display font-black text-2xl text-sky-400">50%</div>
+                      <div class="text-xs font-bold text-white mt-1">Upfront Deposit</div>
+                      <div class="text-[10px] text-slate-400 mt-1">Discovery, architecture &amp; environment initialization</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-center relative overflow-hidden">
+                      <div class="absolute top-0 inset-x-0 h-1 bg-indigo-400"></div>
+                      <div class="font-display font-black text-2xl text-indigo-400">30%</div>
+                      <div class="text-xs font-bold text-white mt-1">Demo Milestone</div>
+                      <div class="text-[10px] text-slate-400 mt-1">Working agent walkthrough &amp; client test validation</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-center relative overflow-hidden">
+                      <div class="absolute top-0 inset-x-0 h-1 bg-emerald-400"></div>
+                      <div class="font-display font-black text-2xl text-emerald-400">20%</div>
+                      <div class="text-xs font-bold text-white mt-1">Final Handover</div>
+                      <div class="text-[10px] text-slate-400 mt-1">Production deployment &amp; code asset transfer</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-xs text-slate-300 flex items-center gap-3">
+                  <i data-lucide="shield-check" class="w-5 h-5 text-sky-400 flex-shrink-0"></i>
+                  <span><strong>Zero Hidden Costs:</strong> All milestones are contractually locked against the agreed scope of work. Includes 14 days of post-launch stabilization support.</span>
+                </div>
+              </div>
+
+              <!-- Column 2: Client-Borne Operating Costs & Retainer (lg:col-span-5) -->
+              <div class="lg:col-span-5 flex flex-col gap-4">
+                
+                <!-- Operating Costs Pass-Through Card -->
+                <div class="liquid-glass rounded-3xl p-6 border border-amber-500/25 bg-amber-950/10">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wide">Component B</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px] font-mono">Direct Pass-Through</span>
+                  </div>
+                  <h5 class="font-display font-bold text-base text-white mb-1.5">Client-Borne Operational Costs</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                    Client maintains direct billing on their infrastructure. You never pay third-party API or server charges from your pocket:
+                  </p>
+                  
+                  <div class="space-y-3 text-xs">
+                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+                      <i data-lucide="cpu" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200">LLM API Tokens:</strong>
+                        <p class="text-slate-400 text-[11px] mt-0.5">Client attaches credit card directly to OpenAI, Anthropic, Groq, or OpenRouter.</p>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+                      <i data-lucide="server" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200">Cloud / VPS Hosting:</strong>
+                        <p class="text-slate-400 text-[11px] mt-0.5">Direct billing on AWS, Hostinger, or Supabase (~₹1,000 – ₹4,000/mo based on load).</p>
+                      </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3">
+                      <i data-lucide="plug" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                      <div>
+                        <strong class="text-slate-200">Third-Party APIs:</strong>
+                        <p class="text-slate-400 text-[11px] mt-0.5">WhatsApp Cloud API (Meta), Twilio SMS/Voice, or Pinecone/Qdrant Vector DBs.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Monthly Retainer Option Card -->
+                <div class="liquid-glass rounded-3xl p-6 border border-purple-500/25 bg-purple-950/10 flex flex-col justify-between flex-grow">
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-xs font-mono font-bold text-purple-400 uppercase tracking-wide">Component C</span>
+                      <span class="px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 text-[10px] font-mono">Optional</span>
+                    </div>
+                    <h5 class="font-display font-bold text-base text-white mb-1">Support &amp; Maintenance Retainer</h5>
+                    <div class="flex items-baseline gap-2 my-2">
+                      <span class="font-display font-black text-xl text-white">₹10,000 – ₹25,000</span>
+                      <span class="text-xs text-slate-400">/ month</span>
+                      <span class="text-xs font-mono text-purple-400 ml-auto font-semibold">($150 – $400/mo)</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                      Ongoing prompt adjustments, model upgrades, API schema migrations, bug fixes, and continuous uptime monitoring.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- STEP 3: PRE-QUOTE SCOPE CHECKLIST (4-PILLAR BENTO) -->
+          <div id="ai-scope-checklist" class="flex flex-col gap-6 scroll-mt-28">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-400/30 flex items-center justify-center font-mono font-bold text-xs">
+                  03
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-lg text-white">Step 3: What to Ask the Client Before Quoting</h4>
+                  <p class="text-slate-400 text-xs">Send this 4-point scope checklist to lock requirements before presenting the final number.</p>
+                </div>
+              </div>
+              <span class="text-[11px] font-mono text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20 self-start sm:self-auto">
+                Scope Checklist
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              
+              <!-- Checklist 1: Platform -->
+              <div class="liquid-glass rounded-3xl p-5 border border-white/10 hover:border-sky-400/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div class="w-9 h-9 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center mb-3.5">
+                    <i data-lucide="layout" class="w-5 h-5"></i>
+                  </div>
+                  <div class="text-[10px] font-mono text-sky-400 uppercase tracking-wider font-semibold mb-1">Pillar 1</div>
+                  <h5 class="font-display font-bold text-base text-white mb-2">Platform Runtime</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                    <strong>Where should the agent live?</strong>
+                  </p>
+                  <p class="text-slate-300 text-xs leading-relaxed">
+                    Web dashboard, WhatsApp bot, desktop app, Telegram, or internal enterprise ERP / CRM tool?
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-500">
+                  Defines frontend &amp; runtime architecture
+                </div>
+              </div>
+
+              <!-- Checklist 2: Actions & Tools -->
+              <div class="liquid-glass rounded-3xl p-5 border border-white/10 hover:border-indigo-400/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div class="w-9 h-9 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center mb-3.5">
+                    <i data-lucide="wrench" class="w-5 h-5"></i>
+                  </div>
+                  <div class="text-[10px] font-mono text-indigo-400 uppercase tracking-wider font-semibold mb-1">Pillar 2</div>
+                  <h5 class="font-display font-bold text-base text-white mb-2">Actions (Tools)</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                    <strong>What real actions must it take?</strong>
+                  </p>
+                  <p class="text-slate-300 text-xs leading-relaxed">
+                    Does the agent just answer questions, or must it dispatch emails, update databases, and schedule calendar events?
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-500">
+                  Defines function calling complexity
+                </div>
+              </div>
+
+              <!-- Checklist 3: Data Sources -->
+              <div class="liquid-glass rounded-3xl p-5 border border-white/10 hover:border-purple-400/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div class="w-9 h-9 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-3.5">
+                    <i data-lucide="database" class="w-5 h-5"></i>
+                  </div>
+                  <div class="text-[10px] font-mono text-purple-400 uppercase tracking-wider font-semibold mb-1">Pillar 3</div>
+                  <h5 class="font-display font-bold text-base text-white mb-2">Data Sources</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                    <strong>What knowledge must it access?</strong>
+                  </p>
+                  <p class="text-slate-300 text-xs leading-relaxed">
+                    Does it need access to private internal documents, live SQL databases, inventory feeds, or live internet web search?
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-500">
+                  Defines RAG &amp; vector infrastructure
+                </div>
+              </div>
+
+              <!-- Checklist 4: Memory -->
+              <div class="liquid-glass rounded-3xl p-5 border border-white/10 hover:border-emerald-400/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3.5">
+                    <i data-lucide="brain" class="w-5 h-5"></i>
+                  </div>
+                  <div class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider font-semibold mb-1">Pillar 4</div>
+                  <h5 class="font-display font-bold text-base text-white mb-2">Episodic Memory</h5>
+                  <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                    <strong>How long must it remember?</strong>
+                  </p>
+                  <p class="text-slate-300 text-xs leading-relaxed">
+                    Does it need persistent long-term episodic memory to recall specific user preferences across multiple weeks and sessions?
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-500">
+                  Defines state storage &amp; token overhead
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Instant Scoping Action Bar -->
+            <div class="p-5 sm:p-6 rounded-3xl liquid-glass border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-5 bg-gradient-to-r from-sky-950/20 via-transparent to-purple-950/20">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-2xl bg-sky-500/15 text-sky-400 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h6 class="font-display font-bold text-sm text-white">Have an AI project to quote or build?</h6>
+                  <p class="text-slate-400 text-xs">Share your requirements checklist with our engineering team for an exact milestone blueprint.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 w-full sm:w-auto flex-shrink-0">
+                <a href="https://wa.me/918979640795?text=Hello%20NDTechHub,%20I%20have%20an%20AI%20agent%20project%20I%20would%20like%20to%20quote%20based%20on%20your%20framework." target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95">
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                  <span>WhatsApp AI Quote</span>
+                </a>
+                <a href="contact.html?type=ai-agent" class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-xs transition-all flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95">
+                  <span>Submit Checklist</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 3. Specialty Services: Retainers, Performance, Consulting & Security (Grid) -->
         <div class="pricing-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" data-category="specialty">
           
           <!-- Add-on 1: Monthly Maintenance -->

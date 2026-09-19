@@ -55,17 +55,25 @@ function filterPricing(category, btn) {
 
     const webGroup = document.querySelector('[data-category="web"]');
     const specialtyGroup = document.querySelector('[data-category="specialty"]');
+    const aiGroup = document.querySelector('[data-category="ai"]');
     const subCards = document.querySelectorAll('[data-sub]');
 
     if (category === 'all') {
         if (webGroup) webGroup.classList.remove('hidden');
         if (specialtyGroup) specialtyGroup.classList.remove('hidden');
+        if (aiGroup) aiGroup.classList.remove('hidden');
         subCards.forEach(c => c.classList.remove('hidden'));
+    } else if (category === 'ai') {
+        if (webGroup) webGroup.classList.add('hidden');
+        if (specialtyGroup) specialtyGroup.classList.add('hidden');
+        if (aiGroup) aiGroup.classList.remove('hidden');
     } else if (category === 'web') {
         if (webGroup) webGroup.classList.remove('hidden');
         if (specialtyGroup) specialtyGroup.classList.add('hidden');
+        if (aiGroup) aiGroup.classList.add('hidden');
     } else if (category === 'maintenance') {
         if (webGroup) webGroup.classList.add('hidden');
+        if (aiGroup) aiGroup.classList.add('hidden');
         if (specialtyGroup) specialtyGroup.classList.remove('hidden');
         subCards.forEach(c => {
             if (c.getAttribute('data-sub') === 'maintenance') {
@@ -76,6 +84,7 @@ function filterPricing(category, btn) {
         });
     } else if (category === 'consulting') {
         if (webGroup) webGroup.classList.add('hidden');
+        if (aiGroup) aiGroup.classList.add('hidden');
         if (specialtyGroup) specialtyGroup.classList.remove('hidden');
         subCards.forEach(c => {
             if (c.getAttribute('data-sub') === 'consulting') {
