@@ -6,7 +6,7 @@ Key facts about NDTechHub:
 - Services: Custom web apps, mobile apps, AI integrations, SaaS platforms, logo & branding, API integrations, admin dashboards, domain & hosting, monthly maintenance.
 - Products: NIA 1.0 (AI Agent, live at nia.ndtechhub.com), Rameshta Devotional Hub (rameshta.online), Hospital Care SaaS (ndmedcare.web.app), ND Studio (ndstudio-79509.web.app).
 - Pricing: Websites from ₹15,000, Web Apps from ₹50,000, Mobile Apps from ₹75,000, Logo Design from ₹3,500.
-- Contact: hello@ndtechhub.com | +91 8587001712 | 105-B Shiv Vihar, Karawal Nagar, Delhi 110094.
+- Contact: hello@ndtechhub.com | +91 8979640795 | 105-B Shiv Vihar, Karawal Nagar, Delhi 110094.
 - Registered: UDYAM-DL-05-0079535 (A unit of NAVDIVA GROUP).
 
 Instructions:
@@ -151,11 +151,11 @@ function generateNiaFallback(query) {
         return `Our pricing:\n- **Websites**: from ₹15,000\n- **Web Apps**: from ₹50,000\n- **Mobile Apps**: from ₹75,000\n- **Logo Design**: from ₹3,500\n\nContact us at **hello@ndtechhub.com** for a custom quote!`;
     }
     if (q.includes('contact') || q.includes('hire') || q.includes('call') || q.includes('whatsapp') || q.includes('reach')) {
-        return `Reach us at:\n- **Email**: hello@ndtechhub.com\n- **Phone**: +91 8587001712\n- **Location**: Delhi, India\n\nOr visit our **Contact** page!`;
+        return `Reach us at:\n- **Email**: hello@ndtechhub.com\n- **Phone**: +91 8979640795\n- **Location**: Delhi, India\n\nOr visit our **Contact** page!`;
     }
     if (q.includes('service') || q.includes('what do you') || q.includes('what can')) {
         return `NDTechHub builds:\n- **Custom Web & Mobile Apps**\n- **AI Integrations & Chatbots**\n- **SaaS Platforms**\n- **Logo & Branding**\n- **Domain, Hosting & Maintenance**\n\nCheck the **Services** tab for full details!`;
     }
 
-    return `Hi! I'm **NIA**, NDTechHub's AI assistant. We build custom web apps, mobile apps, AI integrations, and SaaS platforms. How can I help you today?\n\n📧 hello@ndtechhub.com | 📞 +91 8587001712`;
+    return `Hi! I'm **NIA**, NDTechHub's AI assistant. We build custom web apps, mobile apps, AI integrations, and SaaS platforms. How can I help you today?\n\n📧 hello@ndtechhub.com | 📞 +91 8979640795`;
 }
