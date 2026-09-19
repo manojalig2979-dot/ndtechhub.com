@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-storage.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,6 +19,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const storage = getStorage(app);
+const database = getDatabase(app);
 
 // Export if other modules need to use the app instance
-export { app, analytics };
+export { app, analytics, storage, database, firebaseConfig };

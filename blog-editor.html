@@ -131,10 +131,14 @@
   <!-- Auth Gate (shown when not signed in) -->
   <div id="editor-auth-gate" style="display:none;">
     <div style="font-size:64px;margin-bottom:8px;">🔐</div>
-    <h2 style="font-size:24px;font-weight:800;color:#fff;margin:0 0 8px;">Sign In Required</h2>
-    <p style="color:rgba(255,255,255,.45);font-size:15px;max-width:360px;line-height:1.6;margin:0 0 24px;">You need to be signed in to write a blog post on NDTechHub.</p>
-    <button id="open-signin-btn" style="padding:13px 30px;border:none;background:linear-gradient(135deg,#00f2fe,#4facfe);color:#080c14;font-weight:800;font-size:15px;border-radius:12px;cursor:pointer;font-family:inherit;">Sign In to Continue</button>
-    <a href="blog" style="font-size:13px;color:rgba(255,255,255,.35);margin-top:12px;text-decoration:none;">← Back to Blog</a>
+    <h2 style="font-size:24px;font-weight:800;color:#fff;margin:0 0 8px;">Admin Sign In Required</h2>
+    <p style="color:rgba(255,255,255,.45);font-size:15px;max-width:380px;line-height:1.6;margin:0 0 24px;">You must sign in with an authorized NDTechHub administrator Google Account to write, edit, or publish blog articles.</p>
+    <button id="open-signin-btn" style="padding:13px 30px;border:none;background:linear-gradient(135deg,#00f2fe,#4facfe);color:#080c14;font-weight:800;font-size:15px;border-radius:12px;cursor:pointer;font-family:inherit;box-shadow:0 0 20px rgba(0,242,254,0.3);display:inline-flex;align-items:center;gap:8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+      Sign In with Google
+    </button>
+    <div id="auth-error-msg" style="display:none; color:#f87171; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:10px; padding:10px 16px; font-size:13px; margin-top:16px; max-width:400px;"></div>
+    <a href="blog.html" style="font-size:13px;color:rgba(255,255,255,.35);margin-top:16px;text-decoration:none;">← Back to Blog</a>
   </div>
 
   <!-- Editor Form (shown when signed in) -->
@@ -148,12 +152,31 @@
 
       <!-- Cover Image -->
       <div style="margin-bottom:6px;font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;">Cover Image <span style="font-weight:400;text-transform:none;">(URL or upload from PC)</span></div>
-      <div style="display:flex;gap:12px;margin-bottom:16px;align-items:stretch;">
+      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:stretch;">
         <input type="url" id="post-cover" class="editor-field" placeholder="https://example.com/image.jpg" style="margin-bottom:0;flex:1;" />
-        <label for="cover-file-input" class="upload-btn-label">
+        <label for="cover-file-input" class="upload-btn-label" id="upload-btn-label">
           <i data-lucide="upload" style="width:16px;height:16px;"></i> Upload Cover
         </label>
         <input type="file" id="cover-file-input" accept="image/*" style="display:none;" />
+      </div>
+
+      <!-- Upload Progress -->
+      <div id="upload-progress-container" style="display:none; margin-bottom: 16px;">
+        <div style="display:flex; justify-content:space-between; font-size:11px; color:#38bdf8; margin-bottom:4px; font-family:monospace;">
+          <span id="upload-progress-text">Uploading to Firebase Storage...</span>
+          <span id="upload-progress-pct">0%</span>
+        </div>
+        <div style="width:100%; height:4px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
+          <div id="upload-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #00f2fe, #4facfe); transition:width 0.2s;"></div>
+        </div>
+      </div>
+
+      <!-- Live Cover Preview -->
+      <div id="cover-preview-container" style="display:none; margin-bottom: 20px; position:relative; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); max-height:260px; background:#070a12;">
+        <img id="cover-preview-img" src="" alt="Cover Preview" style="width:100%; height:260px; object-fit:cover; display:block;" />
+        <button type="button" id="remove-cover-btn" style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,0.2); color:#f87171; border-radius:8px; padding:6px 12px; font-size:12px; cursor:pointer; display:flex; align-items:center; gap:4px;">
+          <i data-lucide="trash-2" style="width:14px;height:14px;"></i> Remove
+        </button>
       </div>
 
       <!-- Tags -->
