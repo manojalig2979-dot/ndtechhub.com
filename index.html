@@ -427,6 +427,309 @@
           </div>
         </div>
       </div>
+
+      <!-- TRANSPARENT INVESTMENT & PRICING PLANS SECTION -->
+      <div id="pricing" class="flex flex-col gap-10 scroll-mt-28">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-brand-neon bg-emerald-500/10 border border-emerald-500/30 mb-3">
+              <i data-lucide="badge-percent" class="w-3.5 h-3.5"></i>
+              <span>Official Professional Rates</span>
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+              Transparent Engineering <span class="text-gradient">Price Plans</span>
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+              No hidden retainers or surprise bloat. Clear, scope-locked pricing backed by our official service rate card.
+            </p>
+          </div>
+
+          <!-- Actions: PDF Download & Direct Quote -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="assets/NDTechHub%20Price_List.pdf" download="NDTechHub_Price_List.pdf" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-sky-400/30 bg-sky-500/10 text-xs font-semibold text-sky-300 hover:bg-sky-500/20 hover:border-sky-400/60 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-sky-500/10">
+              <i data-lucide="file-down" class="w-4 h-4 text-sky-400"></i>
+              <span>Download PDF Price List</span>
+            </a>
+            <a href="https://wa.me/918979640795?text=Hello%20NDTechHub,%20I%20would%20like%20a%20quote%20for%20a%20project" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-emerald-500/25">
+              <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+              <span>Instant WhatsApp Quote</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Category Switcher Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-white/10 text-xs font-medium" id="pricing-tabs">
+          <button onclick="filterPricing('all', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-sky-500/20 text-sky-300 border border-sky-400/40 font-semibold transition-all">
+            All Packages
+          </button>
+          <button onclick="filterPricing('web', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 border border-white/10 hover:text-white hover:bg-white/10 transition-all">
+            Web &amp; Application Development
+          </button>
+          <button onclick="filterPricing('maintenance', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 border border-white/10 hover:text-white hover:bg-white/10 transition-all">
+            Maintenance &amp; Speed Optimization
+          </button>
+          <button onclick="filterPricing('consulting', this)" class="pricing-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 border border-white/10 hover:text-white hover:bg-white/10 transition-all">
+            Consulting &amp; Architecture
+          </button>
+        </div>
+
+        <!-- 1. Web & Application Development Cards (Tier Grid) -->
+        <div class="pricing-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-category="web">
+          
+          <!-- Plan 1: Static Site -->
+          <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-sky-500/40 hover:-translate-y-1.5 transition-all duration-300 relative group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-semibold">
+                  Speed &amp; Startup
+                </span>
+                <i data-lucide="zap" class="w-4 h-4 text-sky-400"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white">High-Performance Static Site</h3>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                Ultralight, conversion-focused digital presence engineered with zero framework overhead.
+              </p>
+              <div class="my-5 pt-4 border-t border-white/10">
+                <span class="text-xs text-slate-400 font-mono block">Estimated Investment</span>
+                <div class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight mt-0.5">
+                  ₹25,000 <span class="text-xs font-normal text-slate-400">– ₹45,000</span>
+                </div>
+                <span class="text-[11px] font-mono text-emerald-400 mt-1 block">5–7 Days Delivery Window</span>
+              </div>
+              <ul class="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-white/5">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400 flex-shrink-0"></i><span>5–7 Bespoke Engineered Pages</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400 flex-shrink-0"></i><span>Sub-Second Blazing Load Times</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400 flex-shrink-0"></i><span>100% Fluid Responsive Layout</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400 flex-shrink-0"></i><span>On-Page SEO &amp; Rich Meta Schema</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sky-400 flex-shrink-0"></i><span>Optimized Vanilla Architecture</span></li>
+              </ul>
+            </div>
+            <a href="contact.html?plan=static" class="mt-8 w-full py-2.5 rounded-xl border border-white/15 hover:border-sky-400 hover:bg-sky-500/10 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5">
+              <span>Choose Static Build</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Plan 2: Dynamic Business Site (Featured / Popular) -->
+          <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border-2 border-sky-400/60 shadow-2xl shadow-sky-500/20 bg-gradient-to-b from-sky-500/[0.08] via-transparent to-purple-500/[0.08] hover:-translate-y-2 transition-all duration-300 relative group">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 text-slate-950 font-mono font-black text-[10px] uppercase tracking-wider shadow-lg shadow-sky-500/30">
+              ⭐ Most Popular Choice
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-semibold">
+                  Full Business Control
+                </span>
+                <i data-lucide="layout-dashboard" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white">Dynamic / Custom Business Site</h3>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                Full-featured enterprise CMS with custom admin dashboard, auth, and database persistence.
+              </p>
+              <div class="my-5 pt-4 border-t border-white/10">
+                <span class="text-xs text-slate-400 font-mono block">Estimated Investment</span>
+                <div class="font-display font-black text-2xl sm:text-3xl text-brand-neon tracking-tight mt-0.5">
+                  ₹50,000 <span class="text-xs font-normal text-slate-400">– ₹90,000</span>
+                </div>
+                <span class="text-[11px] font-mono text-sky-400 mt-1 block">2–3 Weeks Delivery Window</span>
+              </div>
+              <ul class="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-white/5">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-neon flex-shrink-0"></i><span>Custom Administrative Dashboard</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-neon flex-shrink-0"></i><span>Headless CMS / Content Management</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-neon flex-shrink-0"></i><span>Secure User Auth &amp; Role Access</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-neon flex-shrink-0"></i><span>Scalable Relational / NoSQL Database</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-neon flex-shrink-0"></i><span>Lead Capture &amp; Automated Email Webhooks</span></li>
+              </ul>
+            </div>
+            <a href="contact.html?plan=dynamic" class="mt-8 w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 via-sky-600 to-brand-violet text-white font-semibold text-xs text-center shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-1.5">
+              <span>Deploy Business System</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Plan 3: E-Commerce Platform -->
+          <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-emerald-500/40 hover:-translate-y-1.5 transition-all duration-300 relative group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+                  E-Commerce &amp; Retail
+                </span>
+                <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white">E-Commerce Platform</h3>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                Complete retail or wholesale transactional engine engineered for high-volume sales.
+              </p>
+              <div class="my-5 pt-4 border-t border-white/10">
+                <span class="text-xs text-slate-400 font-mono block">Estimated Investment</span>
+                <div class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight mt-0.5">
+                  ₹85,000 <span class="text-xs font-normal text-slate-400">– ₹1,80,000+</span>
+                </div>
+                <span class="text-[11px] font-mono text-emerald-400 mt-1 block">3–5 Weeks Delivery Window</span>
+              </div>
+              <ul class="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-white/5">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i><span>Retail &amp; Wholesale Store Architecture</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i><span>Razorpay / Stripe / UPI Multi-Gateway</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i><span>Real-Time Automated Inventory Engine</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i><span>Advanced Faceted Search &amp; SKU Filters</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i><span>Multi-User Roles: Admin, Vendor &amp; Buyer</span></li>
+              </ul>
+            </div>
+            <a href="contact.html?plan=ecommerce" class="mt-8 w-full py-2.5 rounded-xl border border-white/15 hover:border-emerald-400 hover:bg-emerald-500/10 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5">
+              <span>Launch Store Platform</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Plan 4: Custom Enterprise Portal -->
+          <div class="pricing-card liquid-glass rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-purple-500/40 hover:-translate-y-1.5 transition-all duration-300 relative group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold">
+                  Enterprise &amp; SaaS
+                </span>
+                <i data-lucide="server" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white">Custom Web App / Portal</h3>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                Bespoke enterprise software, microservices, complex workflows, and autonomous AI systems.
+              </p>
+              <div class="my-5 pt-4 border-t border-white/10">
+                <span class="text-xs text-slate-400 font-mono block">Estimated Investment</span>
+                <div class="font-display font-black text-2xl sm:text-3xl text-purple-400 tracking-tight mt-0.5">
+                  Custom Quote
+                </div>
+                <span class="text-[11px] font-mono text-purple-300 mt-1 block">Tailored Milestone Sprints</span>
+              </div>
+              <ul class="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-white/5">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 flex-shrink-0"></i><span>Tailor-Made Software &amp; Portal Architecture</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 flex-shrink-0"></i><span>Complex Automation &amp; Business Logic</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 flex-shrink-0"></i><span>Autonomous AI &amp; LLM Tool Integration</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 flex-shrink-0"></i><span>Third-Party API &amp; Webhook Orchestrations</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 flex-shrink-0"></i><span>Dedicated Business Intelligence Dashboards</span></li>
+              </ul>
+            </div>
+            <a href="contact.html?plan=custom" class="mt-8 w-full py-2.5 rounded-xl border border-white/15 hover:border-purple-400 hover:bg-purple-500/10 text-white font-semibold text-xs text-center transition-all flex items-center justify-center gap-1.5">
+              <span>Request Blueprint</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- 2. Specialty Services: Retainers, Performance, Consulting & Security (Grid) -->
+        <div class="pricing-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" data-category="specialty">
+          
+          <!-- Add-on 1: Monthly Maintenance -->
+          <div class="pricing-card liquid-glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-sky-400/30 transition-all" data-sub="maintenance">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-mono text-sky-400 uppercase tracking-wider font-semibold">Support Retainer</span>
+                <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
+              </div>
+              <h4 class="font-display font-bold text-base text-white">Monthly Maintenance</h4>
+              <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                Regular bug fixes, continuous server monitoring, periodic database backups, and up to 5 hours of monthly feature updates.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
+              <div>
+                <span class="font-display font-bold text-xl text-white">₹8,000</span>
+                <span class="text-[11px] text-slate-400">/ month</span>
+              </div>
+              <a href="contact.html?plan=maintenance" class="text-xs text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1">
+                <span>Retain</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Add-on 2: Speed Optimization -->
+          <div class="pricing-card liquid-glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-emerald-400/30 transition-all" data-sub="maintenance">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">Core Web Vitals</span>
+                <i data-lucide="gauge" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-display font-bold text-base text-white">Speed &amp; Performance Audit</h4>
+              <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                Auditing legacy stacks, migrating bloated codebases to clean vanilla architecture, achieving sub-2-second load times.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
+              <div>
+                <span class="font-display font-bold text-xl text-brand-neon">Starting at ₹20,000</span>
+              </div>
+              <a href="contact.html?plan=speed" class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+                <span>Boost</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Add-on 3: Hourly Consultation -->
+          <div class="pricing-card liquid-glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-purple-400/30 transition-all" data-sub="consulting">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-mono text-purple-400 uppercase tracking-wider font-semibold">Advisory &amp; Stack</span>
+                <i data-lucide="phone-call" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <h4 class="font-display font-bold text-base text-white">Hourly Tech Consultation</h4>
+              <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                1-on-1 expert advisory covering architecture planning, technology stack selection, AI integration, and roadmap planning.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
+              <div>
+                <span class="font-display font-bold text-xl text-purple-400">₹3,500</span>
+                <span class="text-[11px] text-slate-400">/ hour</span>
+              </div>
+              <a href="contact.html?plan=consultation" class="text-xs text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1">
+                <span>Book Call</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Add-on 4: System Architecture & Security Audit -->
+          <div class="pricing-card liquid-glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-amber-400/30 transition-all" data-sub="consulting">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-mono text-amber-400 uppercase tracking-wider font-semibold">Infrastructure</span>
+                <i data-lucide="lock" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <h4 class="font-display font-bold text-base text-white">System Architecture &amp; Security</h4>
+              <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                Comprehensive database structural design, workflow logic planning, vulnerability assessment, and security roadmapping.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
+              <div>
+                <span class="font-display font-bold text-xl text-amber-400">Starting at ₹40,000</span>
+              </div>
+              <a href="contact.html?plan=audit" class="text-xs text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1">
+                <span>Audit</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Official Terms & Regulatory Notice Callout -->
+        <div class="p-5 rounded-2xl liquid-glass border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="info" class="w-4 h-4"></i>
+            </div>
+            <div class="text-slate-400 leading-relaxed max-w-3xl">
+              <strong class="text-slate-200">Terms &amp; Baseline Notice:</strong> These rates serve as baseline guidelines from our official price list. Final project estimates depend on exact features, integration complexities, third-party APIs, and delivery milestones.
+              <span class="block text-[11px] font-mono text-slate-500 mt-1">NDTechHub • Reg: UDYAM-DL-05-0079535 • A unit of NAVDIVA GROUP</span>
+            </div>
+          </div>
+          <a href="contact.html" class="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs whitespace-nowrap transition-colors self-start sm:self-auto flex items-center gap-1.5">
+            <span>Discuss Custom Scope</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -514,5 +817,8 @@
   <script src="js/components.js"></script>
   <script src="js/chatbot.js"></script>
   <script src="js/ndtechhub-footer.js"></script>
+  <script>
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  </script>
 </body>
 </html>
